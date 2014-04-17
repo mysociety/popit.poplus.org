@@ -567,13 +567,15 @@ textarea,
   .inner-navigation h2 {
     font-size: 1.2em;
     margin: 0;
-    color: #333333;
+    color: #666666;
     margin-top: 0.5em; }
   .inner-navigation a {
     display: block;
     color: #8a8c8f;
     padding: 0.2em 0; }
     .inner-navigation a:hover, .inner-navigation a:active, .inner-navigation a:focus {
+      color: #333333; }
+    .inner-navigation a h2 {
       color: #333333; }
 
 @media (min-width: 33.75em) and (max-width: 50em) {

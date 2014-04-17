@@ -248,7 +248,7 @@ textarea,
     h2 {
         font-size: 1.2em;
         margin: 0;
-        color: $colour_black;
+        color: lighten($colour_black, 20%);
         margin-top: 0.5em;
     }
     a {
@@ -258,6 +258,9 @@ textarea,
         &:hover,
         &:active,
         &:focus {
+            color: $colour_black;
+        }
+        h2 {
             color: $colour_black;
         }
     }
