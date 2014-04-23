@@ -432,7 +432,7 @@ code {
 pre {
   display: block;
   white-space: pre-wrap;
-  background-color: white;
+  background-color: #f5f5f5;
   border: 1px solid #eaedf2;
   border-radius: 3px;
   padding: 1em;
