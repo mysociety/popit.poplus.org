@@ -1,0 +1,364 @@
+---
+layout: inner-page
+title: API
+---
+<p>The PopIt API offers a JSON interface for accessing and manipulating People, Organizations, Memberships and Posts that are stored in an instance. Every PopIt instance has an API that makes almost all the data stored in it accessible programatically. You can access the API by visiting <code>/api/v0.1</code> in your instance, e.g. <a href="http://za-peoples-assembly.popit.mysociety.org/api/v0.1/"></a><a href="http://za-peoples-assembly.popit.mysociety.org/api/v0.1/">http://za-peoples-assembly.popit.mysociety.org/api/v0.1/</a>.
+
+</p>
+<h2>Versioning</h2>
+<p>There is a version string in the API url, currently <code>v0.1</code>. This will be updated if the API undergoes significant changes that breaks backwards compatibility.
+
+</p>
+<h2>Data schema</h2>
+<p>All textual entries stored in PopIt follow the <a href="http://popoloproject.com/">Popolo</a> schema. You can also add additional fields on top of this using the admin interface or the API.
+
+</p>
+<h2>API collections</h2>
+<p>The API allows you to query four types of collection, <strong>persons</strong>, <strong>organizations</strong>, <strong>memberships</strong> and <strong>posts</strong>. Anywhere in the documentation you see <code>:collection</code> you can replace it with one of those four types.
+
+</p>
+<ul>
+<li><a href="http://za-peoples-assembly.popit.mysociety.org/api/v0.1/persons">http://za-peoples-assembly.popit.mysociety.org/api/v0.1/persons</a></li>
+<li><a href="http://za-peoples-assembly.popit.mysociety.org/api/v0.1/organizations">http://za-peoples-assembly.popit.mysociety.org/api/v0.1/organizations</a></li>
+<li><a href="http://za-peoples-assembly.popit.mysociety.org/api/v0.1/memberships">http://za-peoples-assembly.popit.mysociety.org/api/v0.1/memberships</a></li>
+<li><a href="http://za-peoples-assembly.popit.mysociety.org/api/v0.1/posts">http://za-peoples-assembly.popit.mysociety.org/api/v0.1/posts</a></li>
+</ul>
+<p><strong>Note</strong>: the South Africa People's Assembly instance doesn't currently use the <strong>posts</strong> collection.
+
+</p>
+<h2>Responses</h2>
+<p>JSON objects are always returned in the response. These will have the form:
+
+</p>
+<h3>For a collection</h3>
+<pre><code class="lang-json">{
+  "<span class="attribute">result</span>": <span class="value">[
+    // list of {} results here
+  ]
+}</span></code></pre>
+<h3>For a single document</h3>
+<pre><code class="lang-json">{
+  "result": {
+    // The data stored for the person
+  }
+}</code></pre>
+<p>The exact format of the response depends on the schema of the collection you are looking at. Please see <a href="/docs/api/schemas">Schemas</a> for more details.
+
+</p>
+<h3>Errors</h3>
+<p>If something goes wrong there will be an <code>errors</code> array that will explain the error. Often an HTTP error code will also be used (eg <strong>404</strong> if a result cannot be found).
+
+</p>
+<h2>Record ids</h2>
+<p>You can provide an <code>id</code> field for a record when creating it. If the dataset you're adding to PopIt already has a natural primary key then it makes sense to use that as the <code>id</code> attribute. If you don't have a primary key that you want to use then simply omit the <code>id</code> property when creating the record and one will be generated for you and returned in the response.
+
+</p>
+<h2>Pagination</h2>
+<p>Result listings default to 30 items per page.  When results are paginated there will be extra metadata properties exposed on the body of the response:
+
+</p>
+<ul>
+<li><strong>page</strong> - Integer representing current page number, defaulting to 1. Pass a <code>?page</code> parameter to access further pages (maximum page number is 1000)</li>
+<li><strong>per_page</strong> - Integer representing number of items to return per page of results. Pass <code>?per_page</code> parameter to change this (maximum items per page is 100).</li>
+<li><strong>total</strong> - Integer representing the total number of results in this listing.</li>
+<li><strong>has_more</strong> - A boolean indicating whether there is another page of results after this one.</li>
+<li><strong>prev_url</strong> - The url to access the previous page of results. Will not be present on the first page of results.</li>
+<li><strong>next_url</strong> - The url to access the next page of results. Will not be present on the last page of results.</li>
+</ul>
+<pre><code class="lang-json">{
+  "<span class="attribute">total</span>": <span class="value"><span class="number">90</span></span>,
+  "<span class="attribute">page</span>": <span class="value"><span class="number">2</span></span>,
+  "<span class="attribute">per_page</span>": <span class="value"><span class="number">30</span></span>,
+  "<span class="attribute">has_more</span>": <span class="value"><span class="literal">true</span></span>,
+  "<span class="attribute">prev_url</span>": <span class="value"><span class="string">"http://za-peoples-assembly.popit.mysociety.org/api/v0.1/persons?page=1"</span></span>,
+  "<span class="attribute">next_url</span>": <span class="value"><span class="string">"http://za-peoples-assembly.popit.mysociety.org/api/v0.1/persons?page=3"</span></span>,
+  "<span class="attribute">result</span>": <span class="value">[...]
+}</span></code></pre>
+<h2>Storing content in multiple languages</h2>
+<p><strong>Note</strong>: If you don't want to store content in multiple languages then you can safely ignore this section.
+
+</p>
+<p>Any value that can be a string can instead be an language object where each key is a valid language code (see <strong>Language keys</strong> section below for details). For example if you wanted to store a person's name in English and Russian, you would use the following JSON:
+
+</p>
+<pre><code class="lang-json">{
+  "<span class="attribute">name</span>": <span class="value">{
+    "<span class="attribute">en</span>": <span class="value"><span class="string">"John Smith"</span></span>,
+    "<span class="attribute">ru</span>": <span class="value"><span class="string">"Джон Смит"</span>
+  }</span>
+}</span></code></pre>
+<p>When retrieving records the <code>Accept-Language</code> header is checked to see which language the user wants the record in. For example if it's set to <code>Accept-Language: ru</code> then the response will contain the record translated to Russian:
+
+</p>
+<pre><code class="lang-json">{
+  "<span class="attribute">name</span>": <span class="value"><span class="string">"Джон Смит"</span>
+}</span></code></pre>
+<p>If there is no match for the requested language, or if the <code>Accept-Language</code> header is absent then it will fall back to the default language for the instance, which is currently English (en) but will be configurable in the future.
+
+</p>
+<h3>Language keys</h3>
+<p>An object is determined to be a translation object if all of the keys are valid language codes. This is checked against IANA's <a href="http://www.iana.org/assignments/language-subtag-registry/language-subtag-registry">official repository</a> of language tags. If one of the keys of the object is not a valid language code then it won't be detected as a translation. If your translations aren't being detected them check your language codes against the repository above.
+
+</p>
+<h3>Searching</h3>
+<p>When indexing multiple languages each translation is stored in a separate string key. So for the example above the English and Russian translations would be stored in <code>name_en</code> and <code>name_ru</code> respectively. So to search for a name in Russian you can use a query like <code>name_ru:Джон</code>. The <code>name</code> key will still exist, but will only contain the default language.
+
+</p>
+<h3>Popolo extensions</h3>
+<p>In addition to the <a href="http://popoloproject.com/specs/">Popolo schemas</a> we have added some PopIt specific customisations.
+
+</p>
+<h4>Area objects</h4>
+<p>An area object on Memberships and Posts: this allows you to store the name and id of an area that relates to the Membership or Post that it appears in. You can put any string value in the id field, but the most common use case is to put a <a href="http://mapit.mysociety.org/">MapIt</a> url there. For example if you wanted to associate a Post with an area:
+
+</p>
+<pre><code class="lang-json">{
+  "<span class="attribute">label</span>": <span class="value"><span class="string">"MP for Witney"</span></span>,
+  "<span class="attribute">area</span>": <span class="value">{
+    "<span class="attribute">id</span>": <span class="value"><span class="string">"http://mapit.mysociety.org/area/65622"</span></span>,
+    "<span class="attribute">name</span>": <span class="value"><span class="string">"Witney (UK Parliament constituency)"</span>
+  }</span>
+}</span></code></pre>
+<h4>Organization memberships</h4>
+<p>Popolo currently only allows the members of an Organization to be Persons, but we've extended this to allow them to also be other Organizations. This allows you to e.g. model coalitions. The party Organizations which are part of the coalition have Memberships connecting them to the coalition Organization.
+
+</p>
+<p>An example Membership modelling The Conservative Party's Membership in the UK's Cameron Ministry coalition might look something like:
+
+</p>
+<pre><code class="lang-json">{
+  "<span class="attribute">organization_id</span>": <span class="value"><span class="string">"cameron_ministry"</span></span>,
+  "<span class="attribute">member</span>": <span class="value">{
+    "<span class="attribute">@type</span>": <span class="value"><span class="string">"Organization"</span></span>,
+    "<span class="attribute">id</span>": <span class="value"><span class="string">"conservative_party"</span>
+  }</span>
+}</span></code></pre>
+<p>Then the Liberal Democrats' Membership would look something like:
+
+</p>
+<pre><code class="lang-json">{
+  "<span class="attribute">organization_id</span>": <span class="value"><span class="string">"cameron_ministry"</span></span>,
+  "<span class="attribute">member</span>": <span class="value">{
+    "<span class="attribute">@type</span>": <span class="value"><span class="string">"Organization"</span></span>,
+    "<span class="attribute">id</span>": <span class="value"><span class="string">"liberal_democrats"</span>
+  }</span>
+}</span></code></pre>
+<p>Where <code>cameron_ministry</code> is the id of the coalition Organization and <code>conservative_party</code> and <code>liberal_democrats</code> are the ids of the parties in the coalition.
+
+</p>
+<p>When the API returns the <code>conservative_party</code> or <code>liberal_democrats</code> record, the <code>memberships</code> array property will include the Membership to the coalition. Likewise when the API returns the <code>cameron_ministry</code> record the <code>memberships</code> array property will include the Memberships to the two parties' Organizations.
+
+</p>
+<h2>Examples</h2>
+<p>To view a list of all the people (<strong>persons</strong>) in the database:
+
+</p>
+<p><a href="http://za-peoples-assembly.popit.mysociety.org/api/v0.1/persons">http://za-peoples-assembly.popit.mysociety.org/api/v0.1/persons</a>
+
+</p>
+<pre><code class="lang-json">{
+  "<span class="attribute">result</span>": <span class="value">[
+    {
+      "<span class="attribute">html_url</span>": <span class="value"><span class="string">"http://za-peoples-assembly.popit.mysociety.org/persons/steven-nicholas-swart"</span></span>,
+      "<span class="attribute">url</span>": <span class="value"><span class="string">"http://za-peoples-assembly.popit.mysociety.org/api/v0.1/persons/org.mysociety.za/person/1"</span></span>,
+      "<span class="attribute">other_names</span>": <span class="value">[]</span>,
+      "<span class="attribute">identifiers</span>": <span class="value">[
+        {
+          "<span class="attribute">identifier</span>": <span class="value"><span class="string">"875"</span></span>,
+          "<span class="attribute">scheme</span>": <span class="value"><span class="string">"za.gov.parliament/person"</span>
+        }</span>,
+        {
+          "<span class="attribute">identifier</span>": <span class="value"><span class="string">"5453"</span></span>,
+          "<span class="attribute">scheme</span>": <span class="value"><span class="string">"myreps_person_id"</span>
+        }</span>,
+        {
+          "<span class="attribute">identifier</span>": <span class="value"><span class="string">"8222"</span></span>,
+          "<span class="attribute">scheme</span>": <span class="value"><span class="string">"myreps_id"</span>
+        }</span>
+      ]</span>,
+      "<span class="attribute">contact_details</span>": <span class="value">[
+        {
+          "<span class="attribute">value</span>": <span class="value"><span class="string">"sswart@parliament.gov.za"</span></span>,
+          "<span class="attribute">type</span>": <span class="value"><span class="string">"email"</span>
+        }</span>
+      ]</span>,
+      "<span class="attribute">links</span>": <span class="value">[]</span>,
+      "<span class="attribute">id</span>": <span class="value"><span class="string">"org.mysociety.za/person/1"</span></span>,
+      "<span class="attribute">family_name</span>": <span class="value"><span class="string">"Swart"</span></span>,
+      "<span class="attribute">given_names</span>": <span class="value"><span class="string">"Steven Nicholas"</span></span>,
+      "<span class="attribute">image</span>": <span class="value"><span class="string">"http://www.parliament.gov.za/content/SWART%20STEVEN%20NICHOLAS.jpg"</span></span>,
+      "<span class="attribute">slug</span>": <span class="value"><span class="string">"steven-nicholas-swart"</span></span>,
+      "<span class="attribute">honorific_prefix</span>": <span class="value"><span class="string">"Mr"</span></span>,
+      "<span class="attribute">name</span>": <span class="value"><span class="string">"Steven Nicholas Swart"</span></span>,
+      "<span class="attribute">memberships</span>": <span class="value">[
+        {
+          "<span class="attribute">url</span>": <span class="value"><span class="string">"http://za-peoples-assembly.popit.mysociety.org/api/v0.1/memberships/org.mysociety.za/membership/1"</span></span>,
+          "<span class="attribute">contact_details</span>": <span class="value">[]</span>,
+          "<span class="attribute">links</span>": <span class="value">[]</span>,
+          "<span class="attribute">person_id</span>": <span class="value"><span class="string">"org.mysociety.za/person/1"</span></span>,
+          "<span class="attribute">organization_id</span>": <span class="value"><span class="string">"org.mysociety.za/party/acdp"</span></span>,
+          "<span class="attribute">id</span>": <span class="value"><span class="string">"org.mysociety.za/membership/1"</span>
+        }</span>,
+        {
+          "<span class="attribute">url</span>": <span class="value"><span class="string">"http://za-peoples-assembly.popit.mysociety.org/api/v0.1/memberships/org.mysociety.za/membership/1484"</span></span>,
+          "<span class="attribute">contact_details</span>": <span class="value">[]</span>,
+          "<span class="attribute">links</span>": <span class="value">[]</span>,
+          "<span class="attribute">person_id</span>": <span class="value"><span class="string">"org.mysociety.za/person/1"</span></span>,
+          "<span class="attribute">organization_id</span>": <span class="value"><span class="string">"org.mysociety.za/committee/74"</span></span>,
+          "<span class="attribute">id</span>": <span class="value"><span class="string">"org.mysociety.za/membership/1484"</span>
+        }</span>,
+        {
+          "<span class="attribute">url</span>": <span class="value"><span class="string">"http://za-peoples-assembly.popit.mysociety.org/api/v0.1/memberships/org.mysociety.za/membership/1485"</span></span>,
+          "<span class="attribute">contact_details</span>": <span class="value">[]</span>,
+          "<span class="attribute">links</span>": <span class="value">[]</span>,
+          "<span class="attribute">person_id</span>": <span class="value"><span class="string">"org.mysociety.za/person/1"</span></span>,
+          "<span class="attribute">organization_id</span>": <span class="value"><span class="string">"org.mysociety.za/committee/18"</span></span>,
+          "<span class="attribute">id</span>": <span class="value"><span class="string">"org.mysociety.za/membership/1485"</span>
+        }</span>,
+        {
+          "<span class="attribute">url</span>": <span class="value"><span class="string">"http://za-peoples-assembly.popit.mysociety.org/api/v0.1/memberships/org.mysociety.za/membership/1620"</span></span>,
+          "<span class="attribute">contact_details</span>": <span class="value">[]</span>,
+          "<span class="attribute">links</span>": <span class="value">[]</span>,
+          "<span class="attribute">role</span>": <span class="value"><span class="string">"Alternate Member"</span></span>,
+          "<span class="attribute">person_id</span>": <span class="value"><span class="string">"org.mysociety.za/person/1"</span></span>,
+          "<span class="attribute">organization_id</span>": <span class="value"><span class="string">"org.mysociety.za/committee_pmg/8"</span></span>,
+          "<span class="attribute">id</span>": <span class="value"><span class="string">"org.mysociety.za/membership/1620"</span>
+        }</span>,
+        {
+          "<span class="attribute">url</span>": <span class="value"><span class="string">"http://za-peoples-assembly.popit.mysociety.org/api/v0.1/memberships/org.mysociety.za/membership/1727"</span></span>,
+          "<span class="attribute">contact_details</span>": <span class="value">[]</span>,
+          "<span class="attribute">links</span>": <span class="value">[]</span>,
+          "<span class="attribute">role</span>": <span class="value"><span class="string">"Alternate Member"</span></span>,
+          "<span class="attribute">person_id</span>": <span class="value"><span class="string">"org.mysociety.za/person/1"</span></span>,
+          "<span class="attribute">organization_id</span>": <span class="value"><span class="string">"org.mysociety.za/committee_pmg/16"</span></span>,
+          "<span class="attribute">id</span>": <span class="value"><span class="string">"org.mysociety.za/membership/1727"</span>
+        }</span>,
+        {
+          "<span class="attribute">url</span>": <span class="value"><span class="string">"http://za-peoples-assembly.popit.mysociety.org/api/v0.1/memberships/org.mysociety.za/membership/966"</span></span>,
+          "<span class="attribute">contact_details</span>": <span class="value">[]</span>,
+          "<span class="attribute">id</span>": <span class="value"><span class="string">"org.mysociety.za/membership/966"</span></span>,
+          "<span class="attribute">area</span>": <span class="value">{
+            "<span class="attribute">id</span>": <span class="value"><span class="string">"org.mysociety.za/mapit/code/p/WC"</span></span>,
+            "<span class="attribute">name</span>": <span class="value"><span class="string">"Western Cape"</span>
+          }</span></span>,
+          "<span class="attribute">label</span>": <span class="value"><span class="string">"Member for Western Cape"</span></span>,
+          "<span class="attribute">organization_id</span>": <span class="value"><span class="string">"org.mysociety.za/house/national-assembly"</span></span>,
+          "<span class="attribute">role</span>": <span class="value"><span class="string">"Member"</span></span>,
+          "<span class="attribute">start_date</span>": <span class="value"><span class="string">"2009-05-06"</span></span>,
+          "<span class="attribute">person_id</span>": <span class="value"><span class="string">"org.mysociety.za/person/1"</span></span>,
+          "<span class="attribute">links</span>": <span class="value">[]
+        }</span>,
+        {
+          "<span class="attribute">url</span>": <span class="value"><span class="string">"http://za-peoples-assembly.popit.mysociety.org/api/v0.1/memberships/org.mysociety.za/membership/1644"</span></span>,
+          "<span class="attribute">contact_details</span>": <span class="value">[]</span>,
+          "<span class="attribute">links</span>": <span class="value">[]</span>,
+          "<span class="attribute">role</span>": <span class="value"><span class="string">"Alternate Member"</span></span>,
+          "<span class="attribute">person_id</span>": <span class="value"><span class="string">"org.mysociety.za/person/1"</span></span>,
+          "<span class="attribute">organization_id</span>": <span class="value"><span class="string">"org.mysociety.za/committee_pmg/10"</span></span>,
+          "<span class="attribute">id</span>": <span class="value"><span class="string">"org.mysociety.za/membership/1644"</span>
+        }</span>,
+        {
+          "<span class="attribute">url</span>": <span class="value"><span class="string">"http://za-peoples-assembly.popit.mysociety.org/api/v0.1/memberships/org.mysociety.za/membership/2222"</span></span>,
+          "<span class="attribute">contact_details</span>": <span class="value">[]</span>,
+          "<span class="attribute">links</span>": <span class="value">[]</span>,
+          "<span class="attribute">role</span>": <span class="value"><span class="string">"Alternate Member"</span></span>,
+          "<span class="attribute">person_id</span>": <span class="value"><span class="string">"org.mysociety.za/person/1"</span></span>,
+          "<span class="attribute">organization_id</span>": <span class="value"><span class="string">"org.mysociety.za/committee_pmg/53"</span></span>,
+          "<span class="attribute">id</span>": <span class="value"><span class="string">"org.mysociety.za/membership/2222"</span>
+        }</span>
+      ]
+    }</span>,
+    // More person objects...
+  ]
+}</span></code></pre>
+<p>Or view the record for an individual person in the database:
+
+</p>
+<p><a href="http://za-peoples-assembly.popit.mysociety.org/api/v0.1/persons/org.mysociety.za/person/104">http://za-peoples-assembly.popit.mysociety.org/api/v0.1/persons/org.mysociety.za/person/104</a>
+
+</p>
+<pre><code class="lang-javascript">{
+  <span class="string">"result"</span>: {
+    <span class="string">"html_url"</span>: <span class="string">"http://za-peoples-assembly.popit.mysociety.org/persons/max-vuyisile-sisulu"</span>,
+    <span class="string">"url"</span>: <span class="string">"http://za-peoples-assembly.popit.mysociety.org/api/v0.1/persons/org.mysociety.za/person/104"</span>,
+    <span class="string">"other_names"</span>: [],
+    <span class="string">"identifiers"</span>: [
+      {
+        <span class="string">"identifier"</span>: <span class="string">"629"</span>,
+        <span class="string">"scheme"</span>: <span class="string">"za.gov.parliament/person"</span>
+      },
+      {
+        <span class="string">"identifier"</span>: <span class="string">"5428"</span>,
+        <span class="string">"scheme"</span>: <span class="string">"myreps_person_id"</span>
+      },
+      {
+        <span class="string">"identifier"</span>: <span class="string">"8172"</span>,
+        <span class="string">"scheme"</span>: <span class="string">"myreps_id"</span>
+      }
+    ],
+    <span class="string">"contact_details"</span>: [
+      {
+        <span class="string">"value"</span>: <span class="string">"speaker@parliament.gov.za"</span>,
+        <span class="string">"type"</span>: <span class="string">"email"</span>
+      },
+      {
+        <span class="string">"value"</span>: <span class="string">"(021) 461 9462"</span>,
+        <span class="string">"type"</span>: <span class="string">"fax"</span>,
+        <span class="string">"note"</span>: <span class="string">"Session Fax Number"</span>
+      },
+      {
+        <span class="string">"value"</span>: <span class="string">"(021) 403 2595/3812"</span>,
+        <span class="string">"type"</span>: <span class="string">"voice"</span>,
+        <span class="string">"note"</span>: <span class="string">"Session Phone Number"</span>
+      }
+    ],
+    <span class="string">"links"</span>: [],
+    <span class="string">"id"</span>: <span class="string">"org.mysociety.za/person/104"</span>,
+    <span class="string">"family_name"</span>: <span class="string">"Sisulu"</span>,
+    <span class="string">"given_names"</span>: <span class="string">"Max Vuyisile"</span>,
+    <span class="string">"image"</span>: <span class="string">"http://www.parliament.gov.za/content/SISULU%20MAX%20VUYISILE.jpg"</span>,
+    <span class="string">"slug"</span>: <span class="string">"max-vuyisile-sisulu"</span>,
+    <span class="string">"honorific_prefix"</span>: <span class="string">"Mr"</span>,
+    <span class="string">"name"</span>: <span class="string">"Max Vuyisile Sisulu"</span>,
+    <span class="string">"memberships"</span>: [
+      {
+        <span class="string">"url"</span>: <span class="string">"http://za-peoples-assembly.popit.mysociety.org/api/v0.1/memberships/org.mysociety.za/membership/1005"</span>,
+        <span class="string">"contact_details"</span>: [],
+        <span class="string">"links"</span>: [],
+        <span class="string">"role"</span>: <span class="string">"Speaker"</span>,
+        <span class="string">"person_id"</span>: <span class="string">"org.mysociety.za/person/104"</span>,
+        <span class="string">"organization_id"</span>: <span class="string">"org.mysociety.za/house/national-assembly"</span>,
+        <span class="string">"id"</span>: <span class="string">"org.mysociety.za/membership/1005"</span>
+      },
+      {
+        <span class="string">"url"</span>: <span class="string">"http://za-peoples-assembly.popit.mysociety.org/api/v0.1/memberships/org.mysociety.za/membership/104"</span>,
+        <span class="string">"contact_details"</span>: [],
+        <span class="string">"links"</span>: [],
+        <span class="string">"person_id"</span>: <span class="string">"org.mysociety.za/person/104"</span>,
+        <span class="string">"organization_id"</span>: <span class="string">"org.mysociety.za/party/anc"</span>,
+        <span class="string">"id"</span>: <span class="string">"org.mysociety.za/membership/104"</span>
+      },
+      {
+        <span class="string">"url"</span>: <span class="string">"http://za-peoples-assembly.popit.mysociety.org/api/v0.1/memberships/org.mysociety.za/membership/743"</span>,
+        <span class="string">"id"</span>: <span class="string">"org.mysociety.za/membership/743"</span>,
+        <span class="string">"organization_id"</span>: <span class="string">"org.mysociety.za/house/national-assembly"</span>,
+        <span class="string">"role"</span>: <span class="string">"Member"</span>,
+        <span class="string">"person_id"</span>: <span class="string">"org.mysociety.za/person/104"</span>,
+        <span class="string">"label"</span>: <span class="string">"Member"</span>,
+        <span class="string">"start_date"</span>: <span class="string">"2009-05-06"</span>,
+        <span class="string">"links"</span>: [],
+        <span class="string">"contact_details"</span>: []
+      }
+    ]
+  }
+}</code></pre>
+<h4>Viewing API responses in the browser.</h4>
+<p>The API returns <a href="http://en.wikipedia.org/wiki/JSON">JSON</a> - a data format that is easily usable in all programming languages. It is possible to view JSON in your browser (and easily follow embedded links) if you have one of the following extensions installed:
+
+</p>
+<ul>
+<li><a href="https://chrome.google.com/webstore/detail/chklaanhfefbnpoihckbnefhakgolnmc">JSONView</a> for Chrome</li>
+<li><a href="https://addons.mozilla.org/en-US/firefox/addon/jsonview/">JSONView</a> for FireFox</li>
+<li><a href="http://stackoverflow.com/questions/2483771">Not sure it can be done easily</a> for Internet Explorer :(</li>
+<li>Try a search for "JSON Viewer <your browser="" name="">" for other browsers.</your></li>
+</ul>
