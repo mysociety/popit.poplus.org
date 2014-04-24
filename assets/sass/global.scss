@@ -282,6 +282,14 @@ textarea,
         padding-right: 3em;
         font-size: 1.125em;
     }
+    section {
+        margin: 1em 0;
+        border-bottom: 1px solid $colour_borders;
+        @media (min-width: $medium-screen) {
+            margin: 2em 0;
+            padding: 0 0 1em;
+        }
+    }
 }
 
 

@@ -589,6 +589,13 @@ textarea,
     padding-left: 3em;
     padding-right: 3em;
     font-size: 1.125em; } }
+.main section {
+  margin: 1em 0;
+  border-bottom: 1px solid #eaedf2; }
+  @media (min-width: 33.75em) {
+    .main section {
+      margin: 2em 0;
+      padding: 0 0 1em; } }
 
 .site-header {
   background-color: #fff;
