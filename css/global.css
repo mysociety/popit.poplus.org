@@ -456,6 +456,12 @@ img {
 ul {
   padding-left: 1.3em; }
 
+dt {
+  margin-top: 1.5em; }
+
+dl ul {
+  margin: 0; }
+
 input[type=text],
 input[type=password],
 input[type=url],
