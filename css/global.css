@@ -819,10 +819,15 @@ textarea,
 .hero {
   background-color: #333;
   color: #fff;
-  padding: 2em 0; }
+  padding: 2em 0;
+  background-image: url("../assets/img/hero-a.jpg");
+  background-repeat: no-repeat;
+  background-position: center bottom;
+  background-size: cover; }
   @media (min-width: 33.75em) {
     .hero {
-      padding: 7em 0 8em; } }
+      padding: 7em 0 8em;
+      background-image: url("../assets/img/hero-b.jpg"); } }
 
 .hero__component-title {
   font-weight: 600;
