@@ -861,7 +861,8 @@ textarea,
     .hero__component-description p {
       width: 48%;
       margin-right: 4%;
-      float: left; }
+      float: left;
+      font-size: 1.125em; }
       .hero__component-description p:last-child {
         margin-right: 0; } }
 
