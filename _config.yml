@@ -1,3 +1,4 @@
-name: Your New Jekyll Site
+name: popit.poplus.org
 markdown: redcarpet
 pygments: true
+baseurl: /popit.poplus.org
