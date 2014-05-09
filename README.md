@@ -34,18 +34,6 @@ Remember, when you’re editing links or paths in the HTML, to use the `{{ site.
 
 ## Deploying changes
 
-The site is hosted via Github Pages. To ‘deploy’ your changes from the `master` branch, merge them into the `gh-pages` branch:
+The site is hosted on [Github Pages](https://help.github.com/articles/creating-project-pages-manually#add-content-and-push). All changes should be made on the `gh-pages` branch.
 
-```shell
-git checkout gh-pages
-git merge master
-git push origin gh-pages
-```
-
-Your changes will then be visible at http://mysociety.github.io/popit.poplus.org and, once we’ve sorted out DNS, http://popit.poplus.org too.
-
-Remember to switch back into the `master` branch (or a feature branch) when continuing to make changes after deployment!
-
-```shell
-git checkout master
-```
+Your changes will then be visible at http://popit.poplus.org.
