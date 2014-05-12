@@ -2,7 +2,11 @@
 layout: brochure
 ---
 
-{{ content }}
+<div class="layout-inner-page">
+  {{ content }}
+  <div>
+    <a href="{{ site.baseurl }}/docs/hosted.html">Hosted</a>
+    <a href="{{ site.baseurl }}/docs/self-hosted.html">Self-hosted</a>
+  </div>
+</div>
 
-<a href="{{ site.baseurl }}/docs/hosted.html">Hosted</a>
-<a href="{{ site.baseurl }}/docs/self-hosted.html">Self-hosted</a>
