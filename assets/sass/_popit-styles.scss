@@ -17,6 +17,7 @@
 .example-popit {
     padding-top: 5em;
     background-image: url('../assets/img/example-popit-icon.png');
+    margin-top: 2em;
     @media ($high-dpi-screen)  {
         background-image: url('../assets/img/example-popit-icon@2.png');
     }
@@ -57,6 +58,72 @@
     max-width: 5.1875em;
 }
 
+.explanation {
+    .intro {
+        font-size: 1.125em;
+        color: $colour_dark_blue;
+    }
+    h3 {
+        color: $colour_blue;
+        font-family: $adelle;
+        font-weight: normal;
+    }
+}
+
+.why {
+    background-color: $colour_dark_blue;
+    color: #fff;
+    padding-top: 1em;
+    padding-bottom: 2em;
+    @media (min-width: $medium-screen) {
+        padding-top: 2em;
+    }
+    @media (min-width: $large-screen) {
+        padding-top: 3em;
+        padding-bottom: 4em;
+    }
+    h3 {
+        font-size: 1.125em;
+
+    }
+    p {
+        font-size: 0.875em;
+        color: #a4b1c2;
+    }
+}
+.what,
+.how-it-works,
+.featuring {
+    margin-top: 1em;
+    margin-bottom: 2em;
+    h3 {
+        font-size: 1.125em;
+    }
+    p {
+        font-size: 0.875em;
+        color: $colour_blue;
+    }
+    img {
+        border: 1px solid $colour_borders;
+    }
+}
+
+.what,
+.how-it-works,
+.featuring {
+    @media (min-width: $medium-screen) {
+        margin-top: 3em;
+    }
+    @media (min-width: $large-screen) {
+        margin-top: 4em;
+        margin-bottom: 2em;
+    }
+}
+
+.why + .how-it-works {
+    margin-top: 0;
+    padding-top: 1em;
+}
 
 
 

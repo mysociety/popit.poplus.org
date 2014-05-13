@@ -880,76 +880,6 @@ textarea,
         padding-right: 2em;
         margin-right: 1.5em; } }
 
-.explanation .intro {
-  font-size: 1.125em;
-  color: #2e353e; }
-.explanation h3 {
-  color: #5d6c7e;
-  font-family: "adelle", "Helvetica Neue", Arial, Helvetica, serif;
-  font-weight: normal; }
-
-.example-popit {
-  margin-top: 2em; }
-
-.why {
-  background-color: #2e353e;
-  color: #fff;
-  padding-top: 1em;
-  padding-bottom: 2em; }
-  @media (min-width: 33.75em) {
-    .why {
-      padding-top: 2em; } }
-  @media (min-width: 50em) {
-    .why {
-      padding-top: 3em;
-      padding-bottom: 4em; } }
-  .why h3 {
-    font-size: 1.125em; }
-  .why p {
-    font-size: 0.875em;
-    color: #a4b1c2; }
-
-.what,
-.how-it-works,
-.featuring,
-.examples {
-  margin-top: 1em;
-  margin-bottom: 2em; }
-  .what h3,
-  .how-it-works h3,
-  .featuring h3,
-  .examples h3 {
-    font-size: 1.125em; }
-  .what p,
-  .how-it-works p,
-  .featuring p,
-  .examples p {
-    font-size: 0.875em;
-    color: #5d6c7e; }
-  .what img,
-  .how-it-works img,
-  .featuring img,
-  .examples img {
-    border: 1px solid #eaedf2; }
-
-@media (min-width: 33.75em) {
-  .what,
-  .how-it-works,
-  .featuring,
-  .examples {
-    margin-top: 3em; } }
-@media (min-width: 50em) {
-  .what,
-  .how-it-works,
-  .featuring,
-  .examples {
-    margin-top: 4em;
-    margin-bottom: 2em; } }
-
-.why + .how-it-works {
-  margin-top: 0;
-  padding-top: 1em; }
-
 @media (min-width: 33.75em) and (max-width: 50em) {
   .column {
     clear: both; } }
@@ -1038,6 +968,7 @@ textarea,
 .example-popit {
   padding-top: 5em;
   background-image: url("../assets/img/example-popit-icon.png");
+  margin-top: 2em;
   background-position: top left;
   background-repeat: no-repeat;
   background-size: 83px 60px; }
@@ -1066,3 +997,70 @@ textarea,
 
 .example-popit-icon {
   max-width: 5.1875em; }
+
+.explanation .intro {
+  font-size: 1.125em;
+  color: #2e353e; }
+.explanation h3 {
+  color: #5d6c7e;
+  font-family: "adelle", "Helvetica Neue", Arial, Helvetica, serif;
+  font-weight: normal; }
+
+.why {
+  background-color: #2e353e;
+  color: #fff;
+  padding-top: 1em;
+  padding-bottom: 2em; }
+  @media (min-width: 33.75em) {
+    .why {
+      padding-top: 2em; } }
+  @media (min-width: 50em) {
+    .why {
+      padding-top: 3em;
+      padding-bottom: 4em; } }
+  .why h3 {
+    font-size: 1.125em; }
+  .why p {
+    font-size: 0.875em;
+    color: #a4b1c2; }
+
+.what,
+.how-it-works,
+.featuring,
+.examples {
+  margin-top: 1em;
+  margin-bottom: 2em; }
+  .what h3,
+  .how-it-works h3,
+  .featuring h3,
+  .examples h3 {
+    font-size: 1.125em; }
+  .what p,
+  .how-it-works p,
+  .featuring p,
+  .examples p {
+    font-size: 0.875em;
+    color: #5d6c7e; }
+  .what img,
+  .how-it-works img,
+  .featuring img,
+  .examples img {
+    border: 1px solid #eaedf2; }
+
+@media (min-width: 33.75em) {
+  .what,
+  .how-it-works,
+  .featuring,
+  .examples {
+    margin-top: 3em; } }
+@media (min-width: 50em) {
+  .what,
+  .how-it-works,
+  .featuring,
+  .examples {
+    margin-top: 4em;
+    margin-bottom: 2em; } }
+
+.why + .how-it-works {
+  margin-top: 0;
+  padding-top: 1em; }
