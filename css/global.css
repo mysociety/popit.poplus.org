@@ -880,6 +880,17 @@ textarea,
         padding-right: 2em;
         margin-right: 1.5em; } }
 
+.explanation .intro {
+  font-size: 1.125em;
+  color: #2e353e; }
+.explanation h3 {
+  color: #5d6c7e;
+  font-family: "adelle", "Helvetica Neue", Arial, Helvetica, serif;
+  font-weight: normal; }
+
+.example-popit {
+  margin-top: 2em; }
+
 .why {
   background-color: #2e353e;
   color: #fff;
@@ -898,31 +909,37 @@ textarea,
     font-size: 0.875em;
     color: #a4b1c2; }
 
+.what,
 .how-it-works,
 .featuring,
 .examples {
   margin-top: 1em;
   margin-bottom: 2em; }
+  .what h3,
   .how-it-works h3,
   .featuring h3,
   .examples h3 {
     font-size: 1.125em; }
+  .what p,
   .how-it-works p,
   .featuring p,
   .examples p {
     font-size: 0.875em;
     color: #5d6c7e; }
+  .what img,
   .how-it-works img,
   .featuring img,
   .examples img {
     border: 1px solid #eaedf2; }
 
 @media (min-width: 33.75em) {
+  .what,
   .how-it-works,
   .featuring,
   .examples {
     margin-top: 3em; } }
 @media (min-width: 50em) {
+  .what,
   .how-it-works,
   .featuring,
   .examples {
@@ -955,6 +972,18 @@ textarea,
       margin-right: 5.043859649%;
       /* 46px */ }
       .column-one-of-four:nth-child(4n+4) {
+        margin-right: 0; } }
+
+.column-one-of-two {
+  margin-bottom: 2em;
+  vertical-align: top; }
+  @media (min-width: 33.75em) {
+    .column-one-of-two {
+      width: 47.478070176%;
+      display: inline-block;
+      margin-right: 5.043859649%;
+      /* 46px */ }
+      .column-one-of-two:nth-child(even) {
         margin-right: 0; } }
 
 .layout-full-width-left-heading:before, .layout-full-width-left-heading:after {
@@ -1015,12 +1044,6 @@ textarea,
   @media (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi) {
     .example-popit {
       background-image: url("../assets/img/example-popit-icon@2.png"); } }
-  @media (min-width: 33.75em) and (max-width: 50em) {
-    .example-popit {
-      /* Use the available space and put the icon on the right */
-      padding-top: 0; }
-      .example-popit h3, .example-popit p {
-        padding-left: 33%; } }
   @media (max-width: 33.75em) {
     .example-popit {
       /* These use the .column-one-of-four layout, except these need to be two columns on small screens, not one*/

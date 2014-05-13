@@ -70,6 +70,22 @@
             }
         }
 
+.explanation {
+    .intro {
+        font-size: 1.125em;
+        color: $colour_dark_blue;
+    }
+    h3 {
+        color: $colour_blue;
+        font-family: $adelle;
+        font-weight: normal;
+    }
+}
+
+.example-popit {
+    margin-top: 2em;
+}
+
 .why {
     background-color: $colour_dark_blue;
     color: #fff;
@@ -91,7 +107,7 @@
         color: #a4b1c2;
     }
 }
-
+.what,
 .how-it-works,
 .featuring {
     margin-top: 1em;
@@ -108,6 +124,7 @@
     }
 }
 
+.what,
 .how-it-works,
 .featuring {
     @media (min-width: $medium-screen) {
@@ -146,6 +163,19 @@
         display: inline-block;
         margin-right: 5.043859649%; /* 46px */
         &:nth-child(4n+4) {
+            margin-right: 0;
+        }
+    }
+}
+
+.column-one-of-two {
+    margin-bottom: 2em;
+    vertical-align: top;
+    @media (min-width: $medium-screen) {
+        width: 47.478070176%;
+        display: inline-block;
+        margin-right: 5.043859649%; /* 46px */
+        &:nth-child(even) {
             margin-right: 0;
         }
     }

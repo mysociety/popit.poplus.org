@@ -23,13 +23,7 @@
     background-position: top left;
     background-repeat: no-repeat;
     background-size: 83px 60px;
-    @media (min-width: $medium-screen) and (max-width: $large-screen) {
-        /* Use the available space and put the icon on the right */
-        padding-top: 0;
-        h3, p {
-            padding-left: 33%;
-        }
-    }
+
     @media (max-width: $medium-screen) {
         /* These use the .column-one-of-four layout, except these need to be two columns on small screens, not one*/
         width: 47.478070176%;
