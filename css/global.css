@@ -880,20 +880,34 @@ textarea,
         padding-right: 2em;
         margin-right: 1.5em; } }
 
-.featuring, .examples {
+.how-it-works,
+.featuring,
+.examples {
   margin-top: 1em;
   margin-bottom: 2em; }
-  .featuring h3, .examples h3 {
+  .how-it-works h3,
+  .featuring h3,
+  .examples h3 {
     font-size: 1.125em; }
-  .featuring p, .examples p {
+  .how-it-works p,
+  .featuring p,
+  .examples p {
     font-size: 0.875em;
     color: #5d6c7e; }
+  .how-it-works img,
+  .featuring img,
+  .examples img {
+    border: 1px solid #eaedf2; }
 
 @media (min-width: 33.75em) {
-  .featuring, .examples {
+  .how-it-works,
+  .featuring,
+  .examples {
     margin-top: 3em; } }
 @media (min-width: 50em) {
-  .featuring, .examples {
+  .how-it-works,
+  .featuring,
+  .examples {
     margin-top: 6em;
     margin-bottom: 2em; } }
 
