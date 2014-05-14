@@ -1041,11 +1041,11 @@ textarea,
   .examples p {
     font-size: 0.875em;
     color: #5d6c7e; }
-  .what img,
-  .how-it-works img,
-  .featuring img,
-  .examples img {
-    border: 1px solid #eaedf2; }
+
+.how-it-works img,
+.featuring img,
+.examples img {
+  border: 1px solid #eaedf2; }
 
 @media (min-width: 33.75em) {
   .what,
