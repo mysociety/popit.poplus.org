@@ -27,15 +27,15 @@ PopIt closely follows the suggested REST method behaviours, but with a few devia
   <tr>
     <th>Collection endpoint:</th>
     <td>List documents</td>
-    <td>*Not implemented*</td>
+    <td><i>Not implemented</i></td>
     <td>Create document</td>
-    <td>*Not implemented*</td>
+    <td><i>Not implemented</i></td>
   </tr>
   <tr>
     <th>Document endpoint:</th>
     <td>Retrieve document</td>
     <td>Update document</td>
-    <td>*Not implemented*</td>
+    <td><i>Not implemented</i></td>
     <td>Delete document</td>
   </tr>
 </table>
@@ -46,7 +46,7 @@ If you `POST` to a collection you will create a new entry.
 
 This is an example of sending a request using [cURL](http://curl.haxx.se/) (a command line tool). The command is first, the response received from the server is printed afterwards.
 
-``` bash
+{% highlight bash %}
 
 $ curl                                                 \
     --user you@example.com:s3cr3t                      \
@@ -62,7 +62,7 @@ $ curl                                                 \
     "name": "Joe Bloggs"
   }
 }
-```
+{% endhighlight %}
 
 Note that the request was authenticated using the email address and password of the user.
 
@@ -79,14 +79,14 @@ When you put the order of items in arrays (like images) will be changed as well 
 Sending a `DELETE` request to a document url will cause that document to be
 deleted. An empty 204 response will be returned.
 
-```bash
+{% highlight bash %}
 $ curl                                     \
     --user you@example.com:s3cr3t          \
     -X DELETE                              \
     http://test.127.0.0.1.xip.io:3000/api/v0.1/persons/50d1f2e1c03858f9f6000006
 
 {}
-```
+{% endhighlight %}
 
 ### Not Implemented Methods
 

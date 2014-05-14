@@ -30,23 +30,24 @@ The API allows you to query four types of collection, **persons**, **organizatio
 JSON objects are always returned in the response. These will have the form:
 
 ### For a collection
-```json
+
+{% highlight json %}
 {
   "result": [
     // list of {} results here
   ]
 }
-```
+{% endhighlight %}
 
 ### For a single document
 
-```json
+{% highlight json %}
 {
   "result": {
     // The data stored for the person
   }
 }
-```
+{% endhighlight %}
 
 ### Errors
 
@@ -67,7 +68,7 @@ Result listings default to 30 items per page.  When results are paginated there 
 - **prev_url** - The url to access the previous page of results. Will not be present on the first page of results.
 - **next_url** - The url to access the next page of results. Will not be present on the last page of results.
 
-```json
+{% highlight json %}
 {
   "total": 90,
   "page": 2,
@@ -77,8 +78,8 @@ Result listings default to 30 items per page.  When results are paginated there 
   "next_url": "http://za-peoples-assembly.popit.mysociety.org/api/v0.1/persons?page=3",
   "result": [...]
 }
+{% endhighlight %}
 
-```
 
 ## Storing content in multiple languages
 
@@ -86,22 +87,22 @@ Result listings default to 30 items per page.  When results are paginated there 
 
 Any value that can be a string can instead be an language object where each key is a valid language code (see **Language keys** section below for details). For example if you wanted to store a person's name in English and Russian, you would use the following JSON:
 
-```json
+{% highlight json %}
 {
   "name": {
     "en": "John Smith",
     "ru": "Джон Смит"
   }
 }
-```
+{% endhighlight %}
 
 When retrieving records the `Accept-Language` header is checked to see which language the user wants the record in. For example if it's set to `Accept-Language: ru` then the response will contain the record translated to Russian:
 
-```json
+{% highlight json %}
 {
   "name": "Джон Смит"
 }
-```
+{% endhighlight %}
 
 If there is no match for the requested language, or if the `Accept-Language` header is absent then it will fall back to the default language for the instance, which is currently English (en) but will be configurable in the future.
 
@@ -121,7 +122,7 @@ In addition to the [Popolo schemas](http://popoloproject.com/specs/) we have add
 
 An area object on Memberships and Posts: this allows you to store the name and id of an area that relates to the Membership or Post that it appears in. You can put any string value in the id field, but the most common use case is to put a [MapIt](http://mapit.mysociety.org/) url there. For example if you wanted to associate a Post with an area:
 
-```json
+{% highlight json %}
 {
   "label": "MP for Witney",
   "area": {
@@ -129,7 +130,7 @@ An area object on Memberships and Posts: this allows you to store the name and i
     "name": "Witney (UK Parliament constituency)"
   }
 }
-```
+{% endhighlight %}
 
 #### Organization memberships
 
@@ -137,7 +138,7 @@ Popolo currently only allows the members of an Organization to be Persons, but w
 
 An example Membership modelling The Conservative Party's Membership in the UK's Cameron Ministry coalition might look something like:
 
-```json
+{% highlight json %}
 {
   "organization_id": "cameron_ministry",
   "member": {
@@ -145,11 +146,11 @@ An example Membership modelling The Conservative Party's Membership in the UK's 
     "id": "conservative_party"
   }
 }
-```
+{% endhighlight %}
 
 Then the Liberal Democrats' Membership would look something like:
 
-```json
+{% highlight json %}
 {
   "organization_id": "cameron_ministry",
   "member": {
@@ -157,7 +158,7 @@ Then the Liberal Democrats' Membership would look something like:
     "id": "liberal_democrats"
   }
 }
-```
+{% endhighlight %}
 
 Where `cameron_ministry` is the id of the coalition Organization and `conservative_party` and `liberal_democrats` are the ids of the parties in the coalition.
 
@@ -169,7 +170,7 @@ To view a list of all the people (**persons**) in the database:
 
 http://za-peoples-assembly.popit.mysociety.org/api/v0.1/persons
 
-```json
+{% highlight json %}
 {
   "result": [
     {
@@ -285,13 +286,13 @@ http://za-peoples-assembly.popit.mysociety.org/api/v0.1/persons
     // More person objects...
   ]
 }
-```
+{% endhighlight %}
 
 Or view the record for an individual person in the database:
 
 http://za-peoples-assembly.popit.mysociety.org/api/v0.1/persons/org.mysociety.za/person/104
 
-```json
+{% highlight json %}
 {
   "result": {
     "html_url": "http://za-peoples-assembly.popit.mysociety.org/persons/max-vuyisile-sisulu",
@@ -367,7 +368,7 @@ http://za-peoples-assembly.popit.mysociety.org/api/v0.1/persons/org.mysociety.za
     ]
   }
 }
-```
+{% endhighlight %}
 
 #### Viewing API responses in the browser.
 
