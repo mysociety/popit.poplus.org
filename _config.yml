@@ -2,3 +2,4 @@ name: popit.poplus.org
 markdown: kramdown
 pygments: true
 baseurl:
+permalink: pretty
