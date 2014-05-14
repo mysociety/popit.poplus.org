@@ -1122,3 +1122,10 @@ textarea,
 .why + .how-it-works {
   margin-top: 0;
   padding-top: 1em; }
+
+.final-call-to-action {
+  background-color: #eaedf2;
+  text-align: center;
+  padding: 4em 0; }
+  .final-call-to-action h2 {
+    margin-bottom: 0.66em; }
