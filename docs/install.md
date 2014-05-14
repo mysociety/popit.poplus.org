@@ -5,16 +5,7 @@ title: Installing PopIt
 
 This page describes how to install PopIt manually.
 
-### 1. Get the code
-
-Fetch the latest version from GitHub:
-
-    mkdir popit_root
-    cd popit_root
-    git clone https://github.com/mysociety/popit
-    cd popit
-
-### 2. Install prerequisite packages
+### 1. Install prerequisite packages
 
 You will need to install the following prerequisites in order to get PopIt running.
 
@@ -37,32 +28,45 @@ Install either Homebrew or MacPorts (you might well have one already). Then use 
 
 #### B. Debian/Linux
 
-First install Node.js from the [chris-lea ppa](https://launchpad.net/~chris-lea/+archive/node.js/).
+Before starting, update your package indexes:
+
+    sudo apt-get update
+
+First install Node.js:
 
     sudo apt-get install python-software-properties
     sudo add-apt-repository ppa:chris-lea/node.js
     sudo apt-get update
     sudo apt-get install python g++ make nodejs
 
-Then install MongoDB using the [official installation instructions](http://docs.mongodb.org/manual/tutorial/install-mongodb-on-debian/).
+Next install MongoDB:
 
     sudo apt-key adv --keyserver keyserver.ubuntu.com --recv 7F0CEB10
     echo 'deb http://downloads-distro.mongodb.org/repo/ubuntu-upstart dist 10gen' | sudo tee /etc/apt/sources.list.d/mongodb.list
     sudo apt-get update
     sudo apt-get install mongodb-org
 
-Then install Elasticsearch.
+Then install Elasticsearch:
 
     wget -O - http://packages.elasticsearch.org/GPG-KEY-elasticsearch | sudo apt-key add -
     echo 'deb http://packages.elasticsearch.org/elasticsearch/0.90/debian stable main' | sudo tee /etc/apt/sources.list.d/elasticsearch.list
     sudo apt-get update
     sudo apt-get install openjdk-6-jre elasticsearch
 
-Finally install other packages that PopIt depends on.
+Finally install other packages that PopIt depends on:
 
     sudo apt-get install ruby1.9.1 ruby1.9.1-dev git graphicsmagick unzip sendmail
     sudo gem install sass --version=3.2.14 --no-rdoc --no-ri
     sudo gem install compass --version=0.12.2 --no-rdoc --no-ri
+
+### 2. Get the code
+
+Fetch the latest version from GitHub:
+
+    mkdir popit_root
+    cd popit_root
+    git clone https://github.com/mysociety/popit
+    cd popit
 
 ### 3. Install node modules
 
@@ -86,23 +90,16 @@ There is a make task which uses Compass and Sass to convert the .scss files to .
 
     npm start
 
-Your site should now be up and running. Check by going to
- http://www.127.0.0.1.xip.io:3000/ (or whatever your `<base_url>`
-is set to in the config).
+Your site should now be up and running. Check by going to [http://www.127.0.0.1.xip.io:3000/](http://www.127.0.0.1.xip.io:3000/) (or whatever your `<base_url>` is set to in the config).
 
 ### Creating a new instance
 
-1. To set up a new Popit instance, go to
-    http://www.127.0.0.1.xip.io:3000/instances/new
-2. enter the invite code (`<create_instance_invite_code>` in your config).
-3. To get the email confirmation link, go to
-    http://www.127.0.0.1.xip.io:3000/_dev
-    and click the "Last email sent" link.
+1. To set up a new Popit instance, go to [http://www.127.0.0.1.xip.io:3000/instances/new](http://www.127.0.0.1.xip.io:3000/instances/new)
+2. To get the email confirmation link, go to [http://www.127.0.0.1.xip.io:3000/_dev](http://www.127.0.0.1.xip.io:3000/_dev) and click the "Last email sent" link.
 
-After confirmation, you should be able to see your new empty instance at
-http://<instance>.127.0.0.1.xip.io:3000
+After confirmation, you should be able to see your new empty instance at http://<instance>.127.0.0.1.xip.io:3000
 
-### Some basic mongodb for those new to it
+### Some basic MongoDB for those new to it
 
 It's handy to be able to poke about in the raw PopIt data to see what's there
 and to get a feel for the structure of things.
