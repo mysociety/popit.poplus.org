@@ -1023,6 +1023,11 @@ textarea,
   .why p {
     font-size: 0.875em;
     color: #a4b1c2; }
+  .why .read-more {
+    color: #a4b1c2;
+    text-decoration: underline; }
+    .why .read-more:hover, .why .read-more:active, .why .read-more:focus {
+      color: #e94f36; }
 
 .what,
 .how-it-works,
@@ -1041,6 +1046,23 @@ textarea,
   .examples p {
     font-size: 0.875em;
     color: #5d6c7e; }
+  .what .read-more,
+  .how-it-works .read-more,
+  .featuring .read-more,
+  .examples .read-more {
+    color: #5d6c7e;
+    text-decoration: underline; }
+    .what .read-more:hover, .what .read-more:active, .what .read-more:focus,
+    .how-it-works .read-more:hover,
+    .how-it-works .read-more:active,
+    .how-it-works .read-more:focus,
+    .featuring .read-more:hover,
+    .examples .read-more:hover,
+    .featuring .read-more:active,
+    .examples .read-more:active,
+    .featuring .read-more:focus,
+    .examples .read-more:focus {
+      color: #e94f36; }
 
 .how-it-works img,
 .featuring img,
@@ -1060,6 +1082,14 @@ textarea,
   .examples {
     margin-top: 4em;
     margin-bottom: 2em; } }
+
+.content-column {
+  position: relative; }
+
+.read-more {
+  position: absolute;
+  bottom: 0;
+  right: 0; }
 
 .why + .how-it-works {
   margin-top: 0;

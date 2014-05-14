@@ -90,7 +90,17 @@
         font-size: 0.875em;
         color: #a4b1c2;
     }
+    .read-more {
+        color: #a4b1c2;
+        text-decoration: underline;
+        &:hover,
+        &:active,
+        &:focus {
+            color: $colour_red;
+        }
+    }
 }
+
 .what,
 .how-it-works,
 .featuring {
@@ -102,6 +112,15 @@
     p {
         font-size: 0.875em;
         color: $colour_blue;
+    }
+    .read-more {
+        color: $colour_blue;
+        text-decoration: underline;
+        &:hover,
+        &:active,
+        &:focus {
+            color: $colour_red;
+        }
     }
 }
 
@@ -122,6 +141,16 @@
         margin-top: 4em;
         margin-bottom: 2em;
     }
+}
+
+.content-column {
+    position: relative;
+}
+
+.read-more {
+    position: absolute;
+    bottom: 0;
+    right: 0;
 }
 
 .why + .how-it-works {
