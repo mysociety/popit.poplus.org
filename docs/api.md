@@ -1,7 +1,7 @@
 ---
 layout: docs
-title: API
-description: The API allows you to easily access all the data stored in PopIt from your code or other websites.
+title: Using the API
+description: The PopIt API allows you to easily access all the data stored in PopIt from your code or other websites.
 ---
 
 The PopIt API offers a JSON interface for accessing and manipulating People, Organizations, Memberships and Posts that are stored in an instance. Every PopIt instance has an API that makes almost all the data stored in it accessible programatically. You can access the API by visiting `/api/v0.1` in your instance, e.g. [http://za-peoples-assembly.popit.mysociety.org/api/v0.1/](http://za-peoples-assembly.popit.mysociety.org/api/v0.1/).
