@@ -26,6 +26,8 @@ Install either Homebrew or MacPorts (you might well have one already). Then use 
 
     port install git-core npm mongodb graphicsmagick
 
+You'll need to install [Elasticsearch](http://www.elasticsearch.org/download) manually if you're using MacPorts.
+
 #### B. Debian/Linux
 
 Before starting, update your package indexes:
