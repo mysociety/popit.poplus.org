@@ -1,6 +1,6 @@
 ---
 layout: docs
-title: Hosted PopIt
+title: Getting started
 ---
 
 Using the hosted version of PopIt is the simplest way to start creating reusable lists of politicians and other public figures.
@@ -13,7 +13,7 @@ Once you've filled in the form and submitted it you'll be sent a confirmation em
 
 ## Populate your instance
 
-Now you've created a PopIt instance you'll probably want to start populating it with some data. For more details see [using PopIt]({{ site.baseurl }}/docs/using-popit/).
+Now you've created a PopIt instance you'll probably want to start populating it with some data. For more details see [adding data]({{ site.baseurl }}/docs/adding-data/).
 
 ## Accessing data over the API
 

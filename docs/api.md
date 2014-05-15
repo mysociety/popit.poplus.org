@@ -77,7 +77,7 @@ This is a person record. The fields definitions come from the [Popolo project's 
 
 Unauthenticated users can read resources from the API, but to create new resources you'll need to have your own instance and know your username and password.
 
-Before going through this section go and [create a PopIt instance]({{ site.baseurl }}/docs/hosted/#create-an-instance), then make a note of your email, password and instance API url and head back here.
+Before going through this section go and [create a PopIt instance]({{ site.baseurl }}/docs/getting-started/#create-an-instance), then make a note of your email, password and instance API url and head back here.
 
 You can copy your api-base-url from the homepage of your instance.
 
