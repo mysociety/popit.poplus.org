@@ -92,12 +92,14 @@ There is a make task which uses Compass and Sass to convert the .scss files to .
 
 Your site should now be up and running. Check by going to [http://www.127.0.0.1.xip.io:3000/](http://www.127.0.0.1.xip.io:3000/) (or whatever your `<base_url>` is set to in the config).
 
-### Creating a new instance
+### 7. Creating a new instance
 
 1. To set up a new Popit instance, go to [http://www.127.0.0.1.xip.io:3000/instances/new](http://www.127.0.0.1.xip.io:3000/instances/new)
 2. To get the email confirmation link, go to [http://www.127.0.0.1.xip.io:3000/_dev](http://www.127.0.0.1.xip.io:3000/_dev) and click the "Last email sent" link.
 
-After confirmation, you should be able to see your new empty instance at http://<instance>.127.0.0.1.xip.io:3000
+After confirmation, you should be able to see your new empty instance at `http://<instance>.127.0.0.1.xip.io:3000`
+
+## Appendix
 
 ### Some basic MongoDB for those new to it
 
@@ -108,23 +110,20 @@ The hosting database is called `<popit_prefix>__master`, and each instance
 is given it's own database with the name `<popit_prefix>_<instance>`
 (where `<popit_prefix>` is set in your config).
 
-
-To connect to the hosting database and list all the instances:
+Assuming you've used the default settings in `development.js`, to connect to the hosting database and list all the instances:
 
     $ mongo popitdev__master
     > db.instances.find()
 
 To connect to an instance database and list all the people:
 
-    $ mongo <instance>_master
+    $ mongo popitdev_<instance-slug>
     > db.persons.find()
-
 
 To list all the collections in a database:
 
     > show collections
 
-
-The mongoDB site has a handy [getting started guide](http://docs.mongodb.org/manual/tutorial/getting-started/)
+The MongoDB site has a handy [getting started guide](http://docs.mongodb.org/manual/tutorial/getting-started/)
 and [introduction](http://docs.mongodb.org/manual/core/crud-introduction/).
 
