@@ -17,19 +17,14 @@
 .example-popit {
     padding-top: 5em;
     background-image: url('../assets/img/example-popit-icon.png');
+    margin-top: 2em;
     @media ($high-dpi-screen)  {
         background-image: url('../assets/img/example-popit-icon@2.png');
     }
     background-position: top left;
     background-repeat: no-repeat;
     background-size: 83px 60px;
-    @media (min-width: $medium-screen) and (max-width: $large-screen) {
-        /* Use the available space and put the icon on the right */
-        padding-top: 0;
-        h3, p {
-            padding-left: 33%;
-        }
-    }
+
     @media (max-width: $medium-screen) {
         /* These use the .column-one-of-four layout, except these need to be two columns on small screens, not one*/
         width: 47.478070176%;
@@ -63,7 +58,153 @@
     max-width: 5.1875em;
 }
 
+.explanation {
+    .intro {
+        font-size: 1.125em;
+        color: $colour_dark_blue;
+    }
+    h3 {
+        color: $colour_blue;
+        font-family: $adelle;
+        font-weight: normal;
+    }
+}
 
+.why {
+    background-color: $colour_dark_blue;
+    color: #fff;
+    padding-top: 1em;
+    padding-bottom: 2em;
+    @media (min-width: $medium-screen) {
+        padding-top: 2em;
+    }
+    @media (min-width: $large-screen) {
+        padding-top: 3em;
+        padding-bottom: 4em;
+    }
+    h3 {
+        font-size: 1.125em;
 
+    }
+    p {
+        font-size: 0.875em;
+        color: #a4b1c2;
+    }
+    .read-more {
+        color: #a4b1c2;
+        text-decoration: underline;
+        &:hover,
+        &:active,
+        &:focus {
+            color: $colour_red;
+        }
+    }
+}
+
+.what,
+.how-it-works,
+.featuring {
+    margin-top: 1em;
+    margin-bottom: 2em;
+    h3 {
+        font-size: 1.125em;
+    }
+    p {
+        font-size: 0.875em;
+        color: $colour_blue;
+    }
+    .read-more {
+        color: $colour_blue;
+        text-decoration: underline;
+        &:hover,
+        &:active,
+        &:focus {
+            color: $colour_red;
+        }
+    }
+}
+
+.how-it-works,
+.featuring {
+    img {
+        border: 1px solid $colour_borders;
+    }
+}
+
+.what,
+.how-it-works,
+.featuring {
+    @media (min-width: $medium-screen) {
+        margin-top: 3em;
+    }
+    @media (min-width: $large-screen) {
+        margin-top: 4em;
+        margin-bottom: 2em;
+    }
+}
+
+.content-column {
+    position: relative;
+}
+
+.read-more {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+.why + .how-it-works {
+    margin-top: 0;
+    padding-top: 1em;
+}
+
+.final-call-to-action {
+    background-color: $colour_light_grey;
+    text-align: center;
+    padding: 4em 0;
+    h2 {
+        margin-bottom: 0.66em;
+    }
+}
+
+.docs-choice {
+    > div {
+        margin-top: 2em;
+    }
+    a {
+        display: inline-block;
+        text-align: center;
+        background-color: $colour_light_grey;
+        padding: 1em 0;
+        text-decoration: none;
+        border-radius: 5px;
+        margin-bottom: 1em;
+        width: 100%;
+        &:hover,
+        &:active,
+        &:focus {
+            background-color: $colour_blue;
+            h3 {
+                color: #fff;
+            }
+            p {
+                color: #fff;
+            }
+        }
+        @media (min-width: $medium-screen) {
+            width: 42.5%;
+            float: left;
+            margin-left: 3%;
+            padding: 3%;
+            &:first-child {
+                margin-left: 0;
+            }
+        }
+    }
+
+    p {
+        color: $colour_black;
+    }
+}
 
 

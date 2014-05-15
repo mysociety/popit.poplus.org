@@ -462,6 +462,34 @@ dt {
 dl ul {
   margin: 0; }
 
+table {
+  width: 100%;
+  max-width: 100%;
+  margin: 1em 0 2em;
+  border-collapse: collapse;
+  font-size: 0.875em; }
+  table p {
+    margin: 0; }
+
+td, th {
+  border-bottom: 1px solid #eaedf2;
+  padding: 0.75em 0.6em;
+  text-align: left; }
+
+th {
+  background: inherit;
+  font-weight: normal;
+  color: #5d6c7e;
+  font-weight: 600; }
+
+th[scope="row"] {
+  color: #8a8c8f; }
+
+tbody tr:hover {
+  background-color: white; }
+  tbody tr:hover th[scope="row"] {
+    color: #333333; }
+
 input[type=text],
 input[type=password],
 input[type=url],
@@ -756,7 +784,8 @@ textarea,
       color: #fff; }
 
 .about-poplus {
-  margin-bottom: 2em; }
+  margin-bottom: 2em;
+  position: relative; }
   @media (min-width: 50em) {
     .about-poplus {
       float: left;
@@ -764,6 +793,19 @@ textarea,
       margin-right: 4%; } }
   .about-poplus img {
     margin-bottom: 1em; }
+
+a.contact-us-footer-link {
+  margin-top: 2em;
+  color: #a4b1c2; }
+  a.contact-us-footer-link:hover, a.contact-us-footer-link:active, a.contact-us-footer-link:focus {
+    text-decoration: underline;
+    color: #e94f36; }
+  @media (min-width: 33.75em) {
+    a.contact-us-footer-link {
+      position: absolute;
+      top: 1.1em;
+      left: 15em;
+      margin-top: 0; } }
 
 .poplus-full-logo {
   display: inline-block;
@@ -880,23 +922,6 @@ textarea,
         padding-right: 2em;
         margin-right: 1.5em; } }
 
-.featuring, .examples {
-  margin-top: 1em;
-  margin-bottom: 2em; }
-  .featuring h3, .examples h3 {
-    font-size: 1.125em; }
-  .featuring p, .examples p {
-    font-size: 0.875em;
-    color: #5d6c7e; }
-
-@media (min-width: 33.75em) {
-  .featuring, .examples {
-    margin-top: 3em; } }
-@media (min-width: 50em) {
-  .featuring, .examples {
-    margin-top: 6em;
-    margin-bottom: 2em; } }
-
 @media (min-width: 33.75em) and (max-width: 50em) {
   .column {
     clear: both; } }
@@ -919,6 +944,18 @@ textarea,
       margin-right: 5.043859649%;
       /* 46px */ }
       .column-one-of-four:nth-child(4n+4) {
+        margin-right: 0; } }
+
+.column-one-of-two {
+  margin-bottom: 2em;
+  vertical-align: top; }
+  @media (min-width: 33.75em) {
+    .column-one-of-two {
+      width: 47.478070176%;
+      display: inline-block;
+      margin-right: 5.043859649%;
+      /* 46px */ }
+      .column-one-of-two:nth-child(even) {
         margin-right: 0; } }
 
 .layout-full-width-left-heading:before, .layout-full-width-left-heading:after {
@@ -953,6 +990,11 @@ textarea,
       padding-top: 2.3em;
       border-top: 8px solid #eaedf2; } }
 
+@media (min-width: 50em) {
+  .left-heading--no-border {
+    padding-top: 2.8em;
+    border-top: none; } }
+
 /* Homepage elements that are specific to this component */
 .examples {
   /* inherit all the typographical styles from .featuring */ }
@@ -968,18 +1010,13 @@ textarea,
 .example-popit {
   padding-top: 5em;
   background-image: url("../assets/img/example-popit-icon.png");
+  margin-top: 2em;
   background-position: top left;
   background-repeat: no-repeat;
   background-size: 83px 60px; }
   @media (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi) {
     .example-popit {
       background-image: url("../assets/img/example-popit-icon@2.png"); } }
-  @media (min-width: 33.75em) and (max-width: 50em) {
-    .example-popit {
-      /* Use the available space and put the icon on the right */
-      padding-top: 0; }
-      .example-popit h3, .example-popit p {
-        padding-left: 33%; } }
   @media (max-width: 33.75em) {
     .example-popit {
       /* These use the .column-one-of-four layout, except these need to be two columns on small screens, not one*/
@@ -1002,3 +1039,135 @@ textarea,
 
 .example-popit-icon {
   max-width: 5.1875em; }
+
+.explanation .intro {
+  font-size: 1.125em;
+  color: #2e353e; }
+.explanation h3 {
+  color: #5d6c7e;
+  font-family: "adelle", "Helvetica Neue", Arial, Helvetica, serif;
+  font-weight: normal; }
+
+.why {
+  background-color: #2e353e;
+  color: #fff;
+  padding-top: 1em;
+  padding-bottom: 2em; }
+  @media (min-width: 33.75em) {
+    .why {
+      padding-top: 2em; } }
+  @media (min-width: 50em) {
+    .why {
+      padding-top: 3em;
+      padding-bottom: 4em; } }
+  .why h3 {
+    font-size: 1.125em; }
+  .why p {
+    font-size: 0.875em;
+    color: #a4b1c2; }
+  .why .read-more {
+    color: #a4b1c2;
+    text-decoration: underline; }
+    .why .read-more:hover, .why .read-more:active, .why .read-more:focus {
+      color: #e94f36; }
+
+.what,
+.how-it-works,
+.featuring,
+.examples {
+  margin-top: 1em;
+  margin-bottom: 2em; }
+  .what h3,
+  .how-it-works h3,
+  .featuring h3,
+  .examples h3 {
+    font-size: 1.125em; }
+  .what p,
+  .how-it-works p,
+  .featuring p,
+  .examples p {
+    font-size: 0.875em;
+    color: #5d6c7e; }
+  .what .read-more,
+  .how-it-works .read-more,
+  .featuring .read-more,
+  .examples .read-more {
+    color: #5d6c7e;
+    text-decoration: underline; }
+    .what .read-more:hover, .what .read-more:active, .what .read-more:focus,
+    .how-it-works .read-more:hover,
+    .how-it-works .read-more:active,
+    .how-it-works .read-more:focus,
+    .featuring .read-more:hover,
+    .examples .read-more:hover,
+    .featuring .read-more:active,
+    .examples .read-more:active,
+    .featuring .read-more:focus,
+    .examples .read-more:focus {
+      color: #e94f36; }
+
+.how-it-works img,
+.featuring img,
+.examples img {
+  border: 1px solid #eaedf2; }
+
+@media (min-width: 33.75em) {
+  .what,
+  .how-it-works,
+  .featuring,
+  .examples {
+    margin-top: 3em; } }
+@media (min-width: 50em) {
+  .what,
+  .how-it-works,
+  .featuring,
+  .examples {
+    margin-top: 4em;
+    margin-bottom: 2em; } }
+
+.content-column {
+  position: relative; }
+
+.read-more {
+  position: absolute;
+  bottom: 0;
+  right: 0; }
+
+.why + .how-it-works {
+  margin-top: 0;
+  padding-top: 1em; }
+
+.final-call-to-action {
+  background-color: #eaedf2;
+  text-align: center;
+  padding: 4em 0; }
+  .final-call-to-action h2 {
+    margin-bottom: 0.66em; }
+
+.docs-choice > div {
+  margin-top: 2em; }
+.docs-choice a {
+  display: inline-block;
+  text-align: center;
+  background-color: #eaedf2;
+  padding: 1em 0;
+  text-decoration: none;
+  border-radius: 5px;
+  margin-bottom: 1em;
+  width: 100%; }
+  .docs-choice a:hover, .docs-choice a:active, .docs-choice a:focus {
+    background-color: #5d6c7e; }
+    .docs-choice a:hover h3, .docs-choice a:active h3, .docs-choice a:focus h3 {
+      color: #fff; }
+    .docs-choice a:hover p, .docs-choice a:active p, .docs-choice a:focus p {
+      color: #fff; }
+  @media (min-width: 33.75em) {
+    .docs-choice a {
+      width: 42.5%;
+      float: left;
+      margin-left: 3%;
+      padding: 3%; }
+      .docs-choice a:first-child {
+        margin-left: 0; } }
+.docs-choice p {
+  color: #333333; }

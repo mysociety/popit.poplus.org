@@ -12,50 +12,112 @@ title: Popit
                 <p>PopIt helps you make and maintain information about politicians, and generates open data to power your project.</p>
             </div>
             <div class="hero__component-actions">
-                <a href="http://popit.mysociety.org" class="button--primary">Get started</a><a href="docs/" class="button--secondary">Documentation</a>
+                <a href="http://popit.mysociety.org/instances/new" class="button--primary">Get started</a><a href="{{ site.baseurl }}/docs/" class="button--secondary">Documentation</a>
             </div>
         </div>
     </div>
 </div>
 
-<div class="examples layout-full-width-left-heading">
+<div class="what layout-full-width-left-heading">
     <div class="container">
         <div class="heading-column">
             <div class="left-heading">
-                <h2>Examples</h2>
+                <h2>What is PopIt?</h2>
             </div>
         </div>
         <div class="content-column">
             <div class="grid-row">
-                <div class="column-one-of-four example-popit">
-                    <a href="http://kenyan-politicians.popit.mysociety.org/">
-                        <h3>Kenyan Politicians</h3>
-                        <p>440 People</p>
-                        <p>1472 Organisations</p>
-                    </a>
+                <div class="column-one-of-two">
+                    <div class="explanation">
+                        <p class="intro"> PopIt makes it easy to make, use, and maintain lists of public figures as structured, open data, accessible through a simple web-based interface.</p>
+                        <h3>See some examples:</h3>
+                    </div>
+                    <div class="column-one-of-two example-popit">
+                        <a href="http://kenyan-politicians.popit.mysociety.org/">
+                            <h3>Kenyan Politicians</h3>
+                            <p>440 People</p>
+                            <p>1472 Organisations</p>
+                        </a>
+                    </div><!--
+                    --><div class="column-one-of-two example-popit">
+                        <a href="http://za-peoples-assembly.popit.mysociety.org/">
+                            <h3>South African People's Assembly</h3>
+                            <p>827 People</p>
+                            <p>217 Organisations</p>
+                        </a>
+                    </div>
                 </div><!--
-                --><div class="column-one-of-four example-popit">
-                    <a href="http://za-peoples-assembly.popit.mysociety.org/">
-                        <h3>South African People's Assembly</h3>
-                        <p>827 People</p>
-                        <p>217 Organisations</p>
-                    </a>
-                </div><!--
-                --><div class="column-one-of-four example-popit">
-                    <a href="http://legisladores-ar.popit.mysociety.org">
-                        <h3>Legisladores, Argentina</h3>
-                        <p>258 People</p>
-                        <p>37 Organisations</p>
-                    </a>
-                </div><!--
-                --><div class="column-one-of-four example-popit">
-                    <a href="http://chetan.popit.mysociety.org/">
-                        <h3>Chetan</h3>
-                        <p>899 People</p>
-                        <p>2 Organisations</p>
-                    </a>
+                --><div class="column-one-of-two">
+                    <img src="{{ site.baseurl }}/assets/img/popit-screenshot.png" />
                 </div>
             </div>
+            <a href="{{ site.baseurl }}/about#what" class="read-more">Read more</a>
+        </div>
+    </div>
+</div>
+
+<div class="why layout-full-width-left-heading">
+    <div class="container">
+        <div class="heading-column">
+            <div class="left-heading left-heading--no-border">
+                <h2>Why use PopIt?</h2>
+            </div>
+        </div>
+        <div class="content-column">
+            <div class="grid-row">
+                <div class="column-one-of-four">
+                    <h3>Easy administration</h3>
+                    <p>Create and maintain your public list of politicians or candidates through an elegant interface.</p>
+                </div><!--
+                --><div class="column-one-of-four">
+                    <h3>Structured data</h3>
+                    <p>Storing data about people is hard. PopIt does it for you so you can spend time on more important things.</p>
+                </div><!--
+                --><div class="column-one-of-four">
+                    <h3>Share your data</h3>
+                    <p>PopIt exists to fill the internet with re-usable lists of politicians, candidates, judges and other powerful people.</p>
+                </div><!--
+                --><div class="column-one-of-four">
+                    <h3>Hosted &amp; backed up</h3>
+                    <p>Don’t worry about the cost of your own server, or install hassle.</p>
+                </div>
+            </div>
+            <a href="{{ site.baseurl }}/about#why" class="read-more">Read more</a>
+        </div>
+    </div>
+</div>
+
+<div class="how-it-works layout-full-width-left-heading">
+    <div class="container">
+        <div class="heading-column">
+            <div class="left-heading left-heading--no-border">
+                <h2>How it works</h2>
+            </div>
+        </div>
+        <div class="content-column">
+            <div class="grid-row">
+                <div class="column-one-of-four">
+                    <img src="{{ site.baseurl }}/assets/img/how-screen-1.png" />
+                    <h3>Populate</h3>
+                    <p>Add people and organisations to your PopIt via bulk upload or through the user interface. </p>
+                </div><!--
+                --><div class="column-one-of-four">
+                    <img src="{{ site.baseurl }}/assets/img/how-screen-2.png" />
+                    <h3>Describe</h3>
+                    <p>Help others find, understand and reuse your instance.</p>
+                </div><!--
+                --><div class="column-one-of-four">
+                    <img src="{{ site.baseurl }}/assets/img/how-screen-3.png" />
+                    <h3>Use</h3>
+                    <p>Use PopIt in your application to manage people with the API.</p>
+                </div><!--
+                --><div class="column-one-of-four">
+                    <img src="{{ site.baseurl }}/assets/img/how-screen-4.png" />
+                    <h3>Share</h3>
+                    <p>Publish your PopIt and allow others to use your data in their projects.</p>
+                </div>
+            </div>
+            <a href="{{ site.baseurl }}/about#how" class="read-more">Read more</a>
         </div>
     </div>
 </div>
@@ -70,36 +132,29 @@ title: Popit
         <div class="content-column">
             <div class="grid-row">
                 <div class="column-one-of-four">
-                    <h3>Free and Open Source</h3>
-                    <p>Using PopIt costs nothing for non-profit projects</p>
-                </div><!--
-                --><div class="column-one-of-four">
                     <h3>Friendly interface</h3>
-                    <p>No technical knowledge needed; it's super-simple</p>
+                    <p>A capable, easy to use web interface to manage your people data</p>
                 </div><!--
                 --><div class="column-one-of-four">
-                    <h3>Easy sharing</h3>
-                    <p>Your database is public and online by default</p>
+                    <h3>Powerful API</h3>
+                    <p>A JSON REST API to programatically Create, Read, Update and Delete your data.</p>
                 </div><!--
                 --><div class="column-one-of-four">
-                    <h3>Open data</h3>
-                    <p>Your information automatically becomes Open Data</p>
-                </div>
-            </div>
-            <div class="grid-row">
-                <div class="column-one-of-four">
-                    <h3>Structures your data</h3>
-                    <p>Puts data in a format that's globally useful</p>
+                    <h3>Open standards</h3>
+                    <p>Built on the widely adopted <a href="http://popoloproject.com/">Popolo data standard</a>. PopIt is infinitely compatible.</p>
                 </div><!--
                 --><div class="column-one-of-four">
                     <h3>A Poplus component</h3>
                     <p>Designed so you can drop it into your wider project</p>
-                </div><!--
-                --><div class="column-one-of-four">
-                    <h3>Connectable</h3>
-                    <p>PopIt plays nicely with other components too</p>
                 </div>
             </div>
         </div>
+    </div>
+</div>
+
+<div class="final-call-to-action">
+    <div class="container">
+        <h2>Start managing your people data with PopIt</h2>
+        <a href="http://popit.mysociety.org/instances/new" class="button--primary">Get started</a>
     </div>
 </div>

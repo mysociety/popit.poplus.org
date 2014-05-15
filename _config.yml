@@ -1,4 +1,6 @@
 name: popit.poplus.org
-markdown: redcarpet
+markdown: kramdown
 pygments: true
 baseurl:
+permalink: pretty
+description: Welcome to the PopIt documentation. Here you can find out how to use the hosted version of PopIt, or install your own version.
