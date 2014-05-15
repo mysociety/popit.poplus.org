@@ -1143,3 +1143,31 @@ a.contact-us-footer-link {
   padding: 4em 0; }
   .final-call-to-action h2 {
     margin-bottom: 0.66em; }
+
+.docs-choice > div {
+  margin-top: 2em; }
+.docs-choice a {
+  display: inline-block;
+  text-align: center;
+  background-color: #eaedf2;
+  padding: 1em 0;
+  text-decoration: none;
+  border-radius: 5px;
+  margin-bottom: 1em;
+  width: 100%; }
+  .docs-choice a:hover, .docs-choice a:active, .docs-choice a:focus {
+    background-color: #5d6c7e; }
+    .docs-choice a:hover h3, .docs-choice a:active h3, .docs-choice a:focus h3 {
+      color: #fff; }
+    .docs-choice a:hover p, .docs-choice a:active p, .docs-choice a:focus p {
+      color: #fff; }
+  @media (min-width: 33.75em) {
+    .docs-choice a {
+      width: 42.5%;
+      float: left;
+      margin-left: 3%;
+      padding: 3%; }
+      .docs-choice a:first-child {
+        margin-left: 0; } }
+.docs-choice p {
+  color: #333333; }

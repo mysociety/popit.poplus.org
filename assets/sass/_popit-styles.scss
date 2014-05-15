@@ -167,5 +167,44 @@
     }
 }
 
+.docs-choice {
+    > div {
+        margin-top: 2em;
+    }
+    a {
+        display: inline-block;
+        text-align: center;
+        background-color: $colour_light_grey;
+        padding: 1em 0;
+        text-decoration: none;
+        border-radius: 5px;
+        margin-bottom: 1em;
+        width: 100%;
+        &:hover,
+        &:active,
+        &:focus {
+            background-color: $colour_blue;
+            h3 {
+                color: #fff;
+            }
+            p {
+                color: #fff;
+            }
+        }
+        @media (min-width: $medium-screen) {
+            width: 42.5%;
+            float: left;
+            margin-left: 3%;
+            padding: 3%;
+            &:first-child {
+                margin-left: 0;
+            }
+        }
+    }
+
+    p {
+        color: $colour_black;
+    }
+}
 
 

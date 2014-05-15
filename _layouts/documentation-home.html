@@ -3,10 +3,19 @@ layout: docs
 ---
 
 <div class="layout-inner-page">
-  {{ content }}
-  <div>
-    <a href="{{ site.baseurl }}/docs/getting-started/">Hosted</a>
-    <a href="{{ site.baseurl }}/docs/install/">Self-hosted</a>
+    <div class="docs-choice">
+    <h2>Choose your hosting type</h2>
+    <div>
+        <a href="{{ site.baseurl }}/docs/getting-started/">
+            <h3>Hosted</h3>
+            <p>PopIt hosted on our servers</p>
+        </a><a href="{{ site.baseurl }}/docs/install/">
+            <h3>Self&ndash;hosted</h3>
+            <p>PopIt hosted on your server</p>
+        </a>
+    </div>
   </div>
+  {{ content }}
+
 </div>
 
