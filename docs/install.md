@@ -99,7 +99,15 @@ Your site should now be up and running. Check by going to [http://www.127.0.0.1.
 1. To set up a new Popit instance, go to [http://www.127.0.0.1.xip.io:3000/instances/new](http://www.127.0.0.1.xip.io:3000/instances/new)
 2. To get the email confirmation link, go to [http://www.127.0.0.1.xip.io:3000/_dev](http://www.127.0.0.1.xip.io:3000/_dev) and click the "Last email sent" link.
 
-After confirmation, you should be able to see your new empty instance at `http://<instance>.127.0.0.1.xip.io:3000`
+After confirmation, you should be able to see your new empty instance at `http://<instance>.127.0.0.1.xip.io:3000`.
+
+### 8. Running tests
+
+To run PopIt's test suite use the following:
+
+    make test
+
+This will run jshint, which performs a syntax check and also runs the unit tests.
 
 ## Appendix
 
