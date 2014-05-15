@@ -3,6 +3,10 @@ layout: docs
 title: Installing PopIt
 ---
 
+We can host your site for you, for free, see the [getting started guide]({{ site.baseurl }}/docs/getting-started/) - but if you want to run your own site then you can do that too. You might want your own site if your users are not near the UK (where our servers are based).
+
+### Overview
+
 This page describes how to install PopIt manually.
 
 Alternatively you can [install using Vagrant]({{ site.baseurl }}/docs/install/vagrant/).
