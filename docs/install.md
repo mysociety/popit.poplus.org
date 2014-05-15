@@ -5,6 +5,8 @@ title: Installing PopIt
 
 This page describes how to install PopIt manually.
 
+Alternatively you can [install using Vagrant]({{ site.baseurl }}/docs/install/vagrant/).
+
 ### 1. Install prerequisite packages
 
 You will need to install the following prerequisites in order to get PopIt running.
