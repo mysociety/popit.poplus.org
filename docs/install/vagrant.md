@@ -40,6 +40,7 @@ When the install process has finished, you should be able to SSH into your new d
 
     vagrant ssh
     cd /vagrant/popit
+    cp config/development.js-example config/development.js
     make
 
 ### 5. Start the PopIt server
