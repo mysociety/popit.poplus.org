@@ -64,8 +64,6 @@ Then install Elasticsearch:
 Finally install other packages that PopIt depends on:
 
     sudo apt-get install ruby1.9.1 ruby1.9.1-dev git graphicsmagick unzip sendmail
-    sudo gem install sass --version=3.2.14 --no-rdoc --no-ri
-    sudo gem install compass --version=0.12.2 --no-rdoc --no-ri
 
 ### 2. Get the code
 
@@ -90,7 +88,12 @@ The settings for popit are defined in `config/<environment>.js`. There are defau
 
 ### 5. Generate CSS
 
-There is a make task which uses Compass and Sass to convert the .scss files to .css files
+First you'll need to install a couple of Ruby gems to handle converting the Sass stylesheets to plain css.
+
+    sudo gem install sass --version=3.2.14 --no-rdoc --no-ri
+    sudo gem install compass --version=0.12.2 --no-rdoc --no-ri
+
+Then there is a make task which uses Compass and Sass to convert the .scss files to .css files
 
     make css
 
