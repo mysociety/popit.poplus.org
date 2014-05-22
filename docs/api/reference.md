@@ -118,20 +118,6 @@ When indexing multiple languages each translation is stored in a separate string
 
 In addition to the [Popolo schemas](http://popoloproject.com/specs/) we have added some PopIt specific customisations.
 
-#### Area objects
-
-An area object on Memberships and Posts: this allows you to store the name and id of an area that relates to the Membership or Post that it appears in. You can put any string value in the id field, but the most common use case is to put a [MapIt](http://mapit.mysociety.org/) url there. For example if you wanted to associate a Post with an area:
-
-{% highlight json %}
-{
-  "label": "MP for Witney",
-  "area": {
-    "id": "http://mapit.mysociety.org/area/65622",
-    "name": "Witney (UK Parliament constituency)"
-  }
-}
-{% endhighlight %}
-
 #### Organization memberships
 
 Popolo currently only allows the members of an Organization to be Persons, but we've extended this to allow them to also be other Organizations. This allows you to e.g. model coalitions. The party Organizations which are part of the coalition have Memberships connecting them to the coalition Organization.
