@@ -5,6 +5,12 @@ title: Using the API
 
 This guide will take you through getting data from the API, authentication with the API and creating new data.
 
+Several API clients have been written for PopIt. If your favorite language is not represented, please [let us know](mailto:popit@mysociety.org) so that we can prioritize it.
+
+* [PHP](https://github.com/mysociety/popit-php#readme)
+* [Python](https://github.com/mysociety/popit-python#readme)
+* [Ruby](https://github.com/opennorth/popit-ruby#readme)
+
 ## Overview
 
 Most applications will use an existing wrapper library in the language of your choice. However it's important to be familiar with the underlying API HTTP methods first.
