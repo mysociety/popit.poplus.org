@@ -55,3 +55,27 @@ You can now edit your code from your editor of choice on your host computer, and
 To run the test suite for PopIt use the following command:
 
     npm test
+
+## Customizing the Vagrant instance
+
+There are some options which allow changing some aspects of the virtual machine.
+
+The options can be set either by prefixing the vagrant command, or by exporting to the environment.
+
+Note that you will also need to set these options when you run `vagrant reload`.
+
+- `POPIT_VAGRANT_PORT` - Change the host port the application listens on (default 3000).
+- `POPIT_VAGRANT_NFS` - Set to '1' to enable [NFS](http://docs.vagrantup.com/v2/synced-folders/nfs.html) for faster shared folders (default off).
+- `POPIT_VAGRANT_MEMORY` - Change the amount of memory assigned to the VM in MB (default 1024MB).
+
+#### Prefixing the command
+
+    POPIT_VAGRANT_MEMORY=2048 vagrant up
+
+#### Exporting to the environment
+
+    export POPIT_VAGRANT_MEMORY=2048
+    vagrant up
+    vagrant reload
+
+Both have the same effect, but exporting will retain the variable for the duration of your shell session.
