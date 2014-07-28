@@ -81,11 +81,13 @@ Before going through this section go and [create a PopIt instance]({{ site.baseu
 
 You can copy your api-base-url from the homepage of your instance.
 
-OK! We're going to create a new [Organization](http://popoloproject.com/specs/organization.html) record. When you specify your email address to cURL with the `-u` option it will prompt you for your password.
+OK! We're going to create a new [Organization](http://popoloproject.com/specs/organization.html) record. When you specify your email address to cURL with the `--user` option it will prompt you for your password.
 
-    $ curl -u <your-email> <api-base-url> --header 'Content-Type: application/json' --data '{"name": "Widgets Inc"}'
+In this example our account email address is **bob@example.com** and our instance is called **walkthrough**.
 
-    Enter host password for user '<your-username>':
+    $ curl --user bob@example.com --header 'Content-Type: application/json' --data '{"name": "Widgets Inc"}' http://walkthrough.popit.mysociety.org/api/v0.1/organizations
+
+    Enter host password for user 'bob@example.com':
 
     {
       "result": {
