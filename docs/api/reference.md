@@ -356,6 +356,93 @@ http://za-peoples-assembly.popit.mysociety.org/api/v0.1/persons/org.mysociety.za
 }
 {% endhighlight %}
 
+You can expand the contents of the memberships and inline persons or organizations using the embed query parameter.
+
+http://za-peoples-assembly.popit.mysociety.org/api/v0.1/persons/org.mysociety.za/person/104?embed=membership.organization
+
+{% highlight json %}
+{
+  "result": {
+    "html_url": "http://za-peoples-assembly.popit.mysociety.org/persons/max-vuyisile-sisulu",
+    "url": "http://za-peoples-assembly.popit.mysociety.org/api/v0.1/persons/org.mysociety.za/person/104",
+    "other_names": [],
+    "identifiers": [
+      {
+        "identifier": "629",
+        "scheme": "za.gov.parliament/person"
+      },
+      {
+        "identifier": "5428",
+        "scheme": "myreps_person_id"
+      },
+      {
+        "identifier": "8172",
+        "scheme": "myreps_id"
+      }
+    ],
+    "contact_details": [
+      {
+        "value": "speaker@parliament.gov.za",
+        "type": "email"
+      },
+      {
+        "value": "(021) 461 9462",
+        "type": "fax",
+        "note": "Session Fax Number"
+      },
+      {
+        "value": "(021) 403 2595/3812",
+        "type": "voice",
+        "note": "Session Phone Number"
+      }
+    ],
+    "links": [],
+    "id": "org.mysociety.za/person/104",
+    "family_name": "Sisulu",
+    "given_names": "Max Vuyisile",
+    "image": "http://www.parliament.gov.za/content/SISULU%20MAX%20VUYISILE.jpg",
+    "slug": "max-vuyisile-sisulu",
+    "honorific_prefix": "Mr",
+    "name": "Max Vuyisile Sisulu",
+    "memberships": [
+      {
+        "id": "org.mysociety.za/membership/1005"
+        "url": "http://za-peoples-assembly.popit.mysociety.org/api/v0.1/memberships/org.mysociety.za/membership/1005",
+        "contact_details": [],
+        "links": [],
+        "role": "Speaker",
+        "person_id": "org.mysociety.za/person/104",
+        "organization_id": {
+          "id: "org.mysociety.za/house/national-assembly",
+          "slug": "national-assembly",
+          "classification": "house",
+          "name": "National Assembly",
+          "posts": [],
+          "memberships": [ ] // empty for brevity but this would be populated
+          "links": [],
+          "contact_details": [],
+          "identifiers": [],
+          "other_names": [],
+          "url": "http://za-peoples-assembly.popit.mysociety.org/api/v0.1/organizations/org.mysociety.za/house/national-assembly",
+          "html_url": "http://za-peoples-assembly.popit.mysociety.org/organizations/org.mysociety.za/house/national-assembly"
+        },
+      },
+    ]
+  }
+}
+{% endhighlight %}
+
+Multiple levels of embedding can be specified:
+
+http://za-peoples-assembly.popit.mysociety.org/api/v0.1/persons/org.mysociety.za/person/104?embed=membership.organization.membership.person
+
+Only three levels of embeding are permitted.
+
+If an organization has both person and organization memberships then it's only possible to join one at a time presently.
+
+If a blank embed parameter is used then the results will exclude memberships. This is useful for situations where only
+the basic details about a person or organization are required.
+
 #### Viewing API responses in the browser.
 
 The API returns [JSON](http://en.wikipedia.org/wiki/JSON) - a data format that is easily usable in all programming languages. It is possible to view JSON in your browser (and easily follow embedded links) if you have one of the following extensions installed:
