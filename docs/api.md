@@ -75,19 +75,17 @@ This is a person record. The fields definitions come from the [Popolo project's 
 
 ## Authentication
 
-Unauthenticated users can read resources from the API, but to create new resources you'll need to have your own instance and know your username and password.
+Unauthenticated users can read resources from the API, but to create new resources you'll need to have a popit login with an API key and editor access to the instance.
 
-Before going through this section go and [create a PopIt instance]({{ site.baseurl }}/docs/getting-started/#create-an-instance), then make a note of your email, password and instance API url and head back here.
+Once you have an account select the 'Get API key' option from the user menu ( click on your user name in the top right ). Click the 'Request API key' button on the page and note down the key and head back here.
 
-You can copy your api-base-url from the homepage of your instance.
+You can copy your api-base-url from the homepage of the instance.
 
 OK! We're going to create a new [Organization](http://popoloproject.com/specs/organization.html) record. When you specify your email address to cURL with the `--user` option it will prompt you for your password.
 
-In this example our account email address is **bob@example.com** and our instance is called **walkthrough**.
+In this example our API token is **2a0abbefe6aefb67ba5302a12570c2af2a7f4433** and our instance is called **walkthrough**.
 
-    $ curl --user bob@example.com --header 'Content-Type: application/json' --data '{"name": "Widgets Inc"}' http://walkthrough.popit.mysociety.org/api/v0.1/organizations
-
-    Enter host password for user 'bob@example.com':
+    $ curl  --header 'Content-Type: application/json' --data '{"apikey": "2a0abbefe6aefb67ba5302a12570c2af2a7f4433", "name": "Widgets Inc"}' http://walkthrough.popit.mysociety.org/api/v0.1/organizations
 
     {
       "result": {
