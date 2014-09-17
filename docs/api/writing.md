@@ -48,12 +48,12 @@ This is an example of sending a request using [cURL](http://curl.haxx.se/) (a co
 
 {% highlight bash %}
 
-$ curl                                                 \
-    --request POST                                     \
-    --header "Accept: application/json"                \
-    --header "Content-Type: application/json"          \
-    --data '{ "apikey": "2a0abbefe6aefb67ba5302a12570c2af2a7f4433", \
-    "name": "Joe Bloggs" }' \
+$ curl                                                          \
+    --request POST                                              \
+    --header "Apikey: 2a0abbefe6aefb67ba5302a12570c2af2a7f4433" \
+    --header "Accept: application/json"                         \
+    --header "Content-Type: application/json"                   \
+    --data '{ "name": "Joe Bloggs" }'                           \
     http://test.popit.mysociety.org/api/v0.1/persons
 
 {
@@ -80,9 +80,10 @@ Sending a `DELETE` request to a document url will cause that document to be
 deleted. An empty 204 response will be returned.
 
 {% highlight bash %}
-$ curl                                     \
-    -X DELETE                              \
-    http://test.127.0.0.1.xip.io:3000/api/v0.1/persons/50d1f2e1c03858f9f6000006?apikey=2a0abbefe6aefb67ba5302a12570c2af2a7f4433
+$ curl                                                          \
+    --request DELETE                                            \
+    --header 'Apikey: 2a0abbefe6aefb67ba5302a12570c2af2a7f4433' \
+    http://test.127.0.0.1.xip.io:3000/api/v0.1/persons/50d1f2e1c03858f9f6000006'
 
 {}
 {% endhighlight %}

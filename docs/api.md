@@ -83,9 +83,11 @@ You can copy your api-base-url from the homepage of the instance.
 
 OK! We're going to create a new [Organization](http://popoloproject.com/specs/organization.html) record. When you specify your email address to cURL with the `--user` option it will prompt you for your password.
 
-In this example our API token is **2a0abbefe6aefb67ba5302a12570c2af2a7f4433** and our instance is called **walkthrough**.
+In this example our API key is **2a0abbefe6aefb67ba5302a12570c2af2a7f4433** and our instance is called **walkthrough**.
 
-    $ curl  --header 'Content-Type: application/json' --data '{"apikey": "2a0abbefe6aefb67ba5302a12570c2af2a7f4433", "name": "Widgets Inc"}' http://walkthrough.popit.mysociety.org/api/v0.1/organizations
+Your API key needs to be given in the `Apikey` header.
+
+    $ curl --header 'Apikey: 2a0abbefe6aefb67ba5302a12570c2af2a7f4433'  --header 'Content-Type: application/json' --data '{"name": "Widgets Inc"}' http://walkthrough.popit.mysociety.org/api/v0.1/organizations
 
     {
       "result": {
@@ -101,6 +103,10 @@ In this example our API token is **2a0abbefe6aefb67ba5302a12570c2af2a7f4433** an
         "other_names": []
       }
     }
+
+Alternatively you can add an `apikey` property to the JSON body and provide your API key there.
+
+    $ curl --header 'Content-Type: application/json' --data '{"apikey": "2a0abbefe6aefb67ba5302a12570c2af2a7f4433", "name": "Widgets Inc"}' http://walkthrough.popit.mysociety.org/api/v0.1/organizations
 
 Congratulations! You've now created a new Organization record using the API. You can access this record at the `url` property of the record.
 
