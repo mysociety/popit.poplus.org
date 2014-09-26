@@ -65,8 +65,8 @@ The options can be set either by prefixing the vagrant command, or by exporting 
 Note that you will also need to set these options when you run `vagrant reload`.
 
 - `POPIT_VAGRANT_PORT` - Change the host port the application listens on (default 3000).
-- `POPIT_VAGRANT_NFS` - Set to '1' to enable [NFS](http://docs.vagrantup.com/v2/synced-folders/nfs.html) for faster shared folders (default off).
 - `POPIT_VAGRANT_MEMORY` - Change the amount of memory assigned to the VM in MB (default 1024MB).
+- `POPIT_VAGRANT_EXTRAS` - Path to file for further customisations, see **Further customization** below.
 
 #### Prefixing the command
 
@@ -79,3 +79,23 @@ Note that you will also need to set these options when you run `vagrant reload`.
     vagrant reload
 
 Both have the same effect, but exporting will retain the variable for the duration of your shell session.
+
+### Further customization
+
+If you want to further customize your PopIt vagrant box you can create a file with another `Vagrant.configure` block in it. This will be loaded after the default configuration so you can use it to add to or extend the settings.
+
+For example if you wanted to mount the /vagrant directory using NFS for faster shares you might create a file at `~/.popit_vagrant_extras.rb` which contains the following:
+
+{% highlight ruby %}
+Vagrant.configure("2") do |config|
+  config.vm.network "private_network", ip: "192.168.33.10"
+  config.vm.synced_folder ".", "/vagrant", type: "nfs"
+end
+{% endhighlight %}
+
+Then you'll need to set the `POPIT_VAGRANT_EXTRAS` environment variable and reload your vagrant environment to pick up the changes in the file.
+
+    export POPIT_VAGRANT_EXTRAS=~/.popit_vagrant_extras.rb
+    vagrant reload
+
+You can optionally put the `export` statement above in your `~/.bashrc` file or similar to have it set every time your start your shell.
