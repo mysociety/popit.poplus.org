@@ -6,7 +6,7 @@ description:
 
 It should be possible to manage all the public data stored in a PopIt instance using the API. This includes adding, updating and deleting records.
 
-(Note - there is currently some data that cannot be managed using the API, notably image uploads.)
+For details on editing images see [Images and the API]({{ site.baseurl }}/docs/api/images/).
 
 ## Authorization
 
