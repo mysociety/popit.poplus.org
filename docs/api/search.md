@@ -49,6 +49,19 @@ You can match date ranges using the API, e.g. to find all memberships which star
 
     /api/v0.1/search/memberships?q=start_date:[2013/01/01+TO+2013/12/31]
 
+#### Searching Dates
+
+There is a specific end point for searching dates.
+
+    GET /api/v0.1/search_dates/:collection
+
+You specify the date fields as separate query parameters and it handles documents where the date you are searching for is missing. e.g to search for all memberships of an organization between 2010 and 2012:
+
+    /api/v0.1/search_dates/memberships?q=organization_id=2000&start_date=<2010-01-01&end_date=>2012-12-31
+
+The results for this will also include memberships with no `start_date` or no `end_date`. It's possible to construct a query that does this using the normal search interface, this is just a slighltly more convenient way to do so.
+
+
 ### Further reading
 
 The underlying search engine is elasticsearch. For more details about the kinds of query you can perform, check out the [query string syntax guide](http://www.elasticsearch.org/guide/en/elasticsearch/reference/current/query-dsl-query-string-query.html#query-string-syntax).
