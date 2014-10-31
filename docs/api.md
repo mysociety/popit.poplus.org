@@ -15,14 +15,14 @@ Here we'll be using [cURL](http://curl.haxx.se/) to interact with the API direct
 
 Let's test everything is working correctly first. Open your command prompt and enter the following (without the `$`).
 
-    $ curl http://za-peoples-assembly.popit.mysociety.org/api/v0.1/
+    $ curl https://za-peoples-assembly.popit.mysociety.org/api/v0.1/
 
     {
       "meta": {
-        "image_proxy_url": "http://za-peoples-assembly.popit.mysociety.org/image-proxy/",
-        "memberships_api_url": "http://za-peoples-assembly.popit.mysociety.org/api/v0.1/memberships",
-        "organizations_api_url": "http://za-peoples-assembly.popit.mysociety.org/api/v0.1/organizations",
-        "persons_api_url": "http://za-peoples-assembly.popit.mysociety.org/api/v0.1/persons"
+        "image_proxy_url": "https://za-peoples-assembly.popit.mysociety.org/image-proxy/",
+        "memberships_api_url": "https://za-peoples-assembly.popit.mysociety.org/api/v0.1/memberships",
+        "organizations_api_url": "https://za-peoples-assembly.popit.mysociety.org/api/v0.1/organizations",
+        "persons_api_url": "https://za-peoples-assembly.popit.mysociety.org/api/v0.1/persons"
       },
       "note": "This is the API entry point - use a '*_api_url' link in 'meta' to search a collection."
     }
@@ -33,12 +33,12 @@ This is the API entry point, it shows you the various resource types that you ca
 
 Next we're going to retrieve some existing data from the API.
 
-    $ curl http://za-peoples-assembly.popit.mysociety.org/api/v0.1/persons/org.mysociety.za/person/1
+    $ curl https://za-peoples-assembly.popit.mysociety.org/api/v0.1/persons/org.mysociety.za/person/1
 
     {
       "result": {
-        "html_url": "http://za-peoples-assembly.popit.mysociety.org/persons/org.mysociety.za/person/1",
-        "url": "http://za-peoples-assembly.popit.mysociety.org/api/v0.1/persons/org.mysociety.za/person/1",
+        "html_url": "https://za-peoples-assembly.popit.mysociety.org/persons/org.mysociety.za/person/1",
+        "url": "https://za-peoples-assembly.popit.mysociety.org/api/v0.1/persons/org.mysociety.za/person/1",
         "other_names": [],
         "identifiers": [
           {
@@ -87,12 +87,12 @@ In this example our API key is **2a0abbefe6aefb67ba5302a12570c2af2a7f4433** and 
 
 Your API key needs to be given in the `Apikey` header.
 
-    $ curl --header 'Apikey: 2a0abbefe6aefb67ba5302a12570c2af2a7f4433'  --header 'Content-Type: application/json' --data '{"name": "Widgets Inc"}' http://walkthrough.popit.mysociety.org/api/v0.1/organizations
+    $ curl --header 'Apikey: 2a0abbefe6aefb67ba5302a12570c2af2a7f4433'  --header 'Content-Type: application/json' --data '{"name": "Widgets Inc"}' https://walkthrough.popit.mysociety.org/api/v0.1/organizations
 
     {
       "result": {
-        "html_url": "http://walkthrough.popit.mysociety.org/organizations/5373a60c657d191a1c3ff44e",
-        "url": "http://walkthrough.popit.mysociety.org/api/v0.1/organizations/5373a60c657d191a1c3ff44e",
+        "html_url": "https://walkthrough.popit.mysociety.org/organizations/5373a60c657d191a1c3ff44e",
+        "url": "https://walkthrough.popit.mysociety.org/api/v0.1/organizations/5373a60c657d191a1c3ff44e",
         "id": "5373a60c657d191a1c3ff44e",
         "name": "Widgets Inc",
         "posts": [],
@@ -106,7 +106,7 @@ Your API key needs to be given in the `Apikey` header.
 
 Alternatively you can add an `apikey` property to the JSON body and provide your API key there.
 
-    $ curl --header 'Content-Type: application/json' --data '{"apikey": "2a0abbefe6aefb67ba5302a12570c2af2a7f4433", "name": "Widgets Inc"}' http://walkthrough.popit.mysociety.org/api/v0.1/organizations
+    $ curl --header 'Content-Type: application/json' --data '{"apikey": "2a0abbefe6aefb67ba5302a12570c2af2a7f4433", "name": "Widgets Inc"}' https://walkthrough.popit.mysociety.org/api/v0.1/organizations
 
 Congratulations! You've now created a new Organization record using the API. You can access this record at the `url` property of the record.
 

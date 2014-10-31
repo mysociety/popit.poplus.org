@@ -54,7 +54,7 @@ $ curl                                                          \
     --header "Accept: application/json"                         \
     --header "Content-Type: application/json"                   \
     --data '{ "name": "Joe Bloggs" }'                           \
-    http://test.popit.mysociety.org/api/v0.1/persons
+    https://test.popit.mysociety.org/api/v0.1/persons
 
 {
   "result": {
@@ -83,7 +83,7 @@ deleted. An empty 204 response will be returned.
 $ curl                                                          \
     --request DELETE                                            \
     --header 'Apikey: 2a0abbefe6aefb67ba5302a12570c2af2a7f4433' \
-    http://test.127.0.0.1.xip.io:3000/api/v0.1/persons/50d1f2e1c03858f9f6000006'
+    https://test.popit.mysociety.org/api/v0.1/persons/50d1f2e1c03858f9f6000006
 
 {}
 {% endhighlight %}

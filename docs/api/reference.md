@@ -4,7 +4,7 @@ title: API Reference
 description: The PopIt API allows you to easily access all the data stored in PopIt from your code or other websites.
 ---
 
-The PopIt API offers a JSON interface for accessing and manipulating People, Organizations, Memberships and Posts that are stored in an instance. Every PopIt instance has an API that makes almost all the data stored in it accessible programatically. You can access the API by visiting `/api/v0.1` in your instance, e.g. [http://za-peoples-assembly.popit.mysociety.org/api/v0.1/](http://za-peoples-assembly.popit.mysociety.org/api/v0.1/).
+The PopIt API offers a JSON interface for accessing and manipulating People, Organizations, Memberships and Posts that are stored in an instance. Every PopIt instance has an API that makes almost all the data stored in it accessible programatically. You can access the API by visiting `/api/v0.1` in your instance, e.g. [https://za-peoples-assembly.popit.mysociety.org/api/v0.1/](https://za-peoples-assembly.popit.mysociety.org/api/v0.1/).
 
 ## Versioning
 
@@ -18,10 +18,10 @@ All textual entries stored in PopIt follow the [Popolo](http://popoloproject.com
 
 The API allows you to query four types of collection, **persons**, **organizations**, **memberships** and **posts**. Anywhere in the documentation you see `:collection` you can replace it with one of those four types.
 
-- http://za-peoples-assembly.popit.mysociety.org/api/v0.1/persons
-- http://za-peoples-assembly.popit.mysociety.org/api/v0.1/organizations
-- http://za-peoples-assembly.popit.mysociety.org/api/v0.1/memberships
-- http://za-peoples-assembly.popit.mysociety.org/api/v0.1/posts
+- https://za-peoples-assembly.popit.mysociety.org/api/v0.1/persons
+- https://za-peoples-assembly.popit.mysociety.org/api/v0.1/organizations
+- https://za-peoples-assembly.popit.mysociety.org/api/v0.1/memberships
+- https://za-peoples-assembly.popit.mysociety.org/api/v0.1/posts
 
 **Note**: the South Africa People's Assembly instance doesn't currently use the **posts** collection.
 
@@ -74,8 +74,8 @@ Result listings default to 30 items per page.  When results are paginated there 
   "page": 2,
   "per_page": 30,
   "has_more": true,
-  "prev_url": "http://za-peoples-assembly.popit.mysociety.org/api/v0.1/persons?page=1",
-  "next_url": "http://za-peoples-assembly.popit.mysociety.org/api/v0.1/persons?page=3",
+  "prev_url": "https://za-peoples-assembly.popit.mysociety.org/api/v0.1/persons?page=1",
+  "next_url": "https://za-peoples-assembly.popit.mysociety.org/api/v0.1/persons?page=3",
   "result": [...]
 }
 {% endhighlight %}
@@ -154,14 +154,14 @@ When the API returns the `conservative_party` or `liberal_democrats` record, the
 
 To view a list of all the people (**persons**) in the database:
 
-http://za-peoples-assembly.popit.mysociety.org/api/v0.1/persons
+https://za-peoples-assembly.popit.mysociety.org/api/v0.1/persons
 
 {% highlight json %}
 {
   "result": [
     {
-      "html_url": "http://za-peoples-assembly.popit.mysociety.org/persons/steven-nicholas-swart",
-      "url": "http://za-peoples-assembly.popit.mysociety.org/api/v0.1/persons/org.mysociety.za/person/1",
+      "html_url": "https://za-peoples-assembly.popit.mysociety.org/persons/steven-nicholas-swart",
+      "url": "https://za-peoples-assembly.popit.mysociety.org/api/v0.1/persons/org.mysociety.za/person/1",
       "other_names": [],
       "identifiers": [
         {
@@ -193,7 +193,7 @@ http://za-peoples-assembly.popit.mysociety.org/api/v0.1/persons
       "name": "Steven Nicholas Swart",
       "memberships": [
         {
-          "url": "http://za-peoples-assembly.popit.mysociety.org/api/v0.1/memberships/org.mysociety.za/membership/1",
+          "url": "https://za-peoples-assembly.popit.mysociety.org/api/v0.1/memberships/org.mysociety.za/membership/1",
           "contact_details": [],
           "links": [],
           "person_id": "org.mysociety.za/person/1",
@@ -201,7 +201,7 @@ http://za-peoples-assembly.popit.mysociety.org/api/v0.1/persons
           "id": "org.mysociety.za/membership/1"
         },
         {
-          "url": "http://za-peoples-assembly.popit.mysociety.org/api/v0.1/memberships/org.mysociety.za/membership/1484",
+          "url": "https://za-peoples-assembly.popit.mysociety.org/api/v0.1/memberships/org.mysociety.za/membership/1484",
           "contact_details": [],
           "links": [],
           "person_id": "org.mysociety.za/person/1",
@@ -209,7 +209,7 @@ http://za-peoples-assembly.popit.mysociety.org/api/v0.1/persons
           "id": "org.mysociety.za/membership/1484"
         },
         {
-          "url": "http://za-peoples-assembly.popit.mysociety.org/api/v0.1/memberships/org.mysociety.za/membership/1485",
+          "url": "https://za-peoples-assembly.popit.mysociety.org/api/v0.1/memberships/org.mysociety.za/membership/1485",
           "contact_details": [],
           "links": [],
           "person_id": "org.mysociety.za/person/1",
@@ -217,7 +217,7 @@ http://za-peoples-assembly.popit.mysociety.org/api/v0.1/persons
           "id": "org.mysociety.za/membership/1485"
         },
         {
-          "url": "http://za-peoples-assembly.popit.mysociety.org/api/v0.1/memberships/org.mysociety.za/membership/1620",
+          "url": "https://za-peoples-assembly.popit.mysociety.org/api/v0.1/memberships/org.mysociety.za/membership/1620",
           "contact_details": [],
           "links": [],
           "role": "Alternate Member",
@@ -226,7 +226,7 @@ http://za-peoples-assembly.popit.mysociety.org/api/v0.1/persons
           "id": "org.mysociety.za/membership/1620"
         },
         {
-          "url": "http://za-peoples-assembly.popit.mysociety.org/api/v0.1/memberships/org.mysociety.za/membership/1727",
+          "url": "https://za-peoples-assembly.popit.mysociety.org/api/v0.1/memberships/org.mysociety.za/membership/1727",
           "contact_details": [],
           "links": [],
           "role": "Alternate Member",
@@ -235,7 +235,7 @@ http://za-peoples-assembly.popit.mysociety.org/api/v0.1/persons
           "id": "org.mysociety.za/membership/1727"
         },
         {
-          "url": "http://za-peoples-assembly.popit.mysociety.org/api/v0.1/memberships/org.mysociety.za/membership/966",
+          "url": "https://za-peoples-assembly.popit.mysociety.org/api/v0.1/memberships/org.mysociety.za/membership/966",
           "contact_details": [],
           "id": "org.mysociety.za/membership/966",
           "area": {
@@ -250,7 +250,7 @@ http://za-peoples-assembly.popit.mysociety.org/api/v0.1/persons
           "links": []
         },
         {
-          "url": "http://za-peoples-assembly.popit.mysociety.org/api/v0.1/memberships/org.mysociety.za/membership/1644",
+          "url": "https://za-peoples-assembly.popit.mysociety.org/api/v0.1/memberships/org.mysociety.za/membership/1644",
           "contact_details": [],
           "links": [],
           "role": "Alternate Member",
@@ -259,7 +259,7 @@ http://za-peoples-assembly.popit.mysociety.org/api/v0.1/persons
           "id": "org.mysociety.za/membership/1644"
         },
         {
-          "url": "http://za-peoples-assembly.popit.mysociety.org/api/v0.1/memberships/org.mysociety.za/membership/2222",
+          "url": "https://za-peoples-assembly.popit.mysociety.org/api/v0.1/memberships/org.mysociety.za/membership/2222",
           "contact_details": [],
           "links": [],
           "role": "Alternate Member",
@@ -276,13 +276,13 @@ http://za-peoples-assembly.popit.mysociety.org/api/v0.1/persons
 
 Or view the record for an individual person in the database:
 
-http://za-peoples-assembly.popit.mysociety.org/api/v0.1/persons/org.mysociety.za/person/104
+https://za-peoples-assembly.popit.mysociety.org/api/v0.1/persons/org.mysociety.za/person/104
 
 {% highlight json %}
 {
   "result": {
-    "html_url": "http://za-peoples-assembly.popit.mysociety.org/persons/max-vuyisile-sisulu",
-    "url": "http://za-peoples-assembly.popit.mysociety.org/api/v0.1/persons/org.mysociety.za/person/104",
+    "html_url": "https://za-peoples-assembly.popit.mysociety.org/persons/max-vuyisile-sisulu",
+    "url": "https://za-peoples-assembly.popit.mysociety.org/api/v0.1/persons/org.mysociety.za/person/104",
     "other_names": [],
     "identifiers": [
       {
@@ -324,7 +324,7 @@ http://za-peoples-assembly.popit.mysociety.org/api/v0.1/persons/org.mysociety.za
     "name": "Max Vuyisile Sisulu",
     "memberships": [
       {
-        "url": "http://za-peoples-assembly.popit.mysociety.org/api/v0.1/memberships/org.mysociety.za/membership/1005",
+        "url": "https://za-peoples-assembly.popit.mysociety.org/api/v0.1/memberships/org.mysociety.za/membership/1005",
         "contact_details": [],
         "links": [],
         "role": "Speaker",
@@ -333,7 +333,7 @@ http://za-peoples-assembly.popit.mysociety.org/api/v0.1/persons/org.mysociety.za
         "id": "org.mysociety.za/membership/1005"
       },
       {
-        "url": "http://za-peoples-assembly.popit.mysociety.org/api/v0.1/memberships/org.mysociety.za/membership/104",
+        "url": "https://za-peoples-assembly.popit.mysociety.org/api/v0.1/memberships/org.mysociety.za/membership/104",
         "contact_details": [],
         "links": [],
         "person_id": "org.mysociety.za/person/104",
@@ -341,7 +341,7 @@ http://za-peoples-assembly.popit.mysociety.org/api/v0.1/persons/org.mysociety.za
         "id": "org.mysociety.za/membership/104"
       },
       {
-        "url": "http://za-peoples-assembly.popit.mysociety.org/api/v0.1/memberships/org.mysociety.za/membership/743",
+        "url": "https://za-peoples-assembly.popit.mysociety.org/api/v0.1/memberships/org.mysociety.za/membership/743",
         "id": "org.mysociety.za/membership/743",
         "organization_id": "org.mysociety.za/house/national-assembly",
         "role": "Member",
@@ -358,13 +358,13 @@ http://za-peoples-assembly.popit.mysociety.org/api/v0.1/persons/org.mysociety.za
 
 You can expand the contents of the memberships and inline persons or organizations using the embed query parameter.
 
-http://za-peoples-assembly.popit.mysociety.org/api/v0.1/persons/org.mysociety.za/person/104?embed=membership.organization
+https://za-peoples-assembly.popit.mysociety.org/api/v0.1/persons/org.mysociety.za/person/104?embed=membership.organization
 
 {% highlight json %}
 {
   "result": {
-    "html_url": "http://za-peoples-assembly.popit.mysociety.org/persons/max-vuyisile-sisulu",
-    "url": "http://za-peoples-assembly.popit.mysociety.org/api/v0.1/persons/org.mysociety.za/person/104",
+    "html_url": "https://za-peoples-assembly.popit.mysociety.org/persons/max-vuyisile-sisulu",
+    "url": "https://za-peoples-assembly.popit.mysociety.org/api/v0.1/persons/org.mysociety.za/person/104",
     "other_names": [],
     "identifiers": [
       {
@@ -407,7 +407,7 @@ http://za-peoples-assembly.popit.mysociety.org/api/v0.1/persons/org.mysociety.za
     "memberships": [
       {
         "id": "org.mysociety.za/membership/1005"
-        "url": "http://za-peoples-assembly.popit.mysociety.org/api/v0.1/memberships/org.mysociety.za/membership/1005",
+        "url": "https://za-peoples-assembly.popit.mysociety.org/api/v0.1/memberships/org.mysociety.za/membership/1005",
         "contact_details": [],
         "links": [],
         "role": "Speaker",
@@ -423,8 +423,8 @@ http://za-peoples-assembly.popit.mysociety.org/api/v0.1/persons/org.mysociety.za
           "contact_details": [],
           "identifiers": [],
           "other_names": [],
-          "url": "http://za-peoples-assembly.popit.mysociety.org/api/v0.1/organizations/org.mysociety.za/house/national-assembly",
-          "html_url": "http://za-peoples-assembly.popit.mysociety.org/organizations/org.mysociety.za/house/national-assembly"
+          "url": "https://za-peoples-assembly.popit.mysociety.org/api/v0.1/organizations/org.mysociety.za/house/national-assembly",
+          "html_url": "https://za-peoples-assembly.popit.mysociety.org/organizations/org.mysociety.za/house/national-assembly"
         },
       },
     ]
@@ -434,7 +434,7 @@ http://za-peoples-assembly.popit.mysociety.org/api/v0.1/persons/org.mysociety.za
 
 Multiple levels of embedding can be specified:
 
-http://za-peoples-assembly.popit.mysociety.org/api/v0.1/persons/org.mysociety.za/person/104?embed=membership.organization.membership.person
+https://za-peoples-assembly.popit.mysociety.org/api/v0.1/persons/org.mysociety.za/person/104?embed=membership.organization.membership.person
 
 Only three levels of embeding are permitted.
 

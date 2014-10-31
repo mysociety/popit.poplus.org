@@ -19,7 +19,7 @@ $ curl                                                          \
     --header "Content-Type: application/json"                   \
     --data '{ "name": "Joe Bloggs",
               "image": "http://example.org/image.jpg" }'        \
-http://test.popit.mysociety.org/api/v0.1/persons/50d1f2e1c03858f9f6000006
+https://test.popit.mysociety.org/api/v0.1/persons/50d1f2e1c03858f9f6000006
 
 {
   "result": {
@@ -56,7 +56,7 @@ $ curl                                                          \
                 }
               ]
             }'                                                  \
-http://test.popit.mysociety.org/api/v0.1/persons/50d1f2e1c03858f9f6000006
+https://test.popit.mysociety.org/api/v0.1/persons/50d1f2e1c03858f9f6000006
 
 {
   "result": {
@@ -89,17 +89,17 @@ curl -v                                                             \
     -F notes='Official Portrait'                                    \
     -F source='PR office'                                           \
     -F "image=@portrait.jpg"                                        \
-http://test.popit.mysociety.org/api/v0.1/persons/50d1f2e1c03858f9f6000006/image
+https://test.popit.mysociety.org/api/v0.1/persons/50d1f2e1c03858f9f6000006/image
 
 {
   "result": {
     "id": "50d1f2e1c03858f9f6000006",
     "name": "Joe Bloggs"
-    "image": "http://test.popit.mysociety.org/api/v0.1/persons/images/53b14f5bb4f7834e56083bb7/50d1f2e1c03858f9f6000006",
+    "image": "https://test.popit.mysociety.org/api/v0.1/persons/images/53b14f5bb4f7834e56083bb7/50d1f2e1c03858f9f6000006",
     "images": [
         {
             "_id": "53b14f5bb4f7834e56083bb7",
-            "url": "http://test.popit.mysociety.org/persons/50d1f2e1c03858f9f6000006/image/53b14f5bb4f7834e56083bb7",
+            "url": "https://test.popit.mysociety.org/persons/50d1f2e1c03858f9f6000006/image/53b14f5bb4f7834e56083bb7",
             "created": "2014-06-30t11:51:55.251z",
             "notes": "Official Portrait",
             "mime_type": "image/jpeg",
@@ -130,7 +130,7 @@ If we'd had an existing image in place then the result would have looked like th
         },
         {
             "_id": "53b14f5bb4f7834e56083bb7",
-            "url": "http://test.popit.mysociety.org/persons/50d1f2e1c03858f9f6000006/image/53b14f5bb4f7834e56083bb7",
+            "url": "https://test.popit.mysociety.org/persons/50d1f2e1c03858f9f6000006/image/53b14f5bb4f7834e56083bb7",
             "created": "2014-06-30t11:51:55.251z",
             "notes": "Official Portrait",
             "mime_type": "image/jpeg",
@@ -152,17 +152,17 @@ curl -v                                                               \
     -F notes='Unofficial Portrait'                                    \
     -F source='Paparazzi'                                             \
     -F "image=@portrait2.jpg"                                         \
-http://test.popit.mysociety.org/api/v0.1/persons/50d1f2e1c03858f9f6000006/image/53b14f5bb4f7834e56083bb7
+https://test.popit.mysociety.org/api/v0.1/persons/50d1f2e1c03858f9f6000006/image/53b14f5bb4f7834e56083bb7
 
 {
   "result": {
     "id": "50d1f2e1c03858f9f6000006",
     "name": "Joe Bloggs"
-    "image": "http://test.popit.mysociety.org/persons/50d1f2e1c03858f9f6000006/image/53b14f5bb4f7834e56083bb7",
+    "image": "https://test.popit.mysociety.org/persons/50d1f2e1c03858f9f6000006/image/53b14f5bb4f7834e56083bb7",
     "images": [
         {
             "_id": "53b14f5bb4f7834e56083bb7",
-            "url": "http://test.popit.mysociety.org/persons/50d1f2e1c03858f9f6000006/image/53b14f5bb4f7834e56083bb7",
+            "url": "https://test.popit.mysociety.org/persons/50d1f2e1c03858f9f6000006/image/53b14f5bb4f7834e56083bb7",
             "created": "2014-06-30t11:51:55.251z",
             "mime_type": "image/jpeg",
             "notes": "Unofficial Portrait",
@@ -185,7 +185,7 @@ To delete you can either `POST` a new document with that image missing from the 
 $ curl                                                          \
     --request DELETE                                            \
     --header "Apikey: 2a0abbefe6aefb67ba5302a12570c2af2a7f4433" \
-http://test.popit.mysociety.org/api/v0.1/persons/50d1f2e1c03858f9f6000006/image/53b14f5bb4f7834e56083bb7
+https://test.popit.mysociety.org/api/v0.1/persons/50d1f2e1c03858f9f6000006/image/53b14f5bb4f7834e56083bb7
 
 {
   "result": {
@@ -207,7 +207,7 @@ $ curl                                                          \
     --header "Apikey: 2a0abbefe6aefb67ba5302a12570c2af2a7f4433" \
     --header "Accept: application/json"                         \
     --header "Content-Type: application/json"                   \
-http://test.popit.mysociety.org/api/v0.1/persons/50d1f2e1c03858f9f6000006/image
+https://test.popit.mysociety.org/api/v0.1/persons/50d1f2e1c03858f9f6000006/image
 
 {
   "result": {
