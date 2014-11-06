@@ -112,4 +112,4 @@ Congratulations! You've now created a new Organization record using the API. You
 
 ## Further reading
 
-This guide has only skimmed the surface of the API, for more details check out the [API reference]({{ site.baseurl }}/docs/api/reference/).
+This guide has only skimmed the surface of the API, for a slightly fuller example see [the API tutorial](/docs/api-tutorial/) or for more details on all the API features check out the [API reference]({{ site.baseurl }}/docs/api/reference/).
