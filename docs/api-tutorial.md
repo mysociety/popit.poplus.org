@@ -3,7 +3,7 @@ layout: docs
 title: API tutorial
 ---
 
-This tutorial aims to show you the basics of using the API. For simplicity we're going to use the command line tool `curl` although for use as part of a larger project you'll probably use either the appropriate PopIt client library or an HTTP client.
+This tutorial aims to show you the basics of using the API. For simplicity we're going to use the command line tool `curl` although for use as part of a larger project you'll probably use either the appropriate [PopIt client library](/docs/api/clients/) or an HTTP client.
 
 We're going to assume that you've got an account and an API key, as described in the Authentication section of [Using the API ](/docs/api/#authentication).
 
