@@ -123,42 +123,6 @@ An object is determined to be a translation object if all of the keys are valid 
 
 When indexing multiple languages each translation is stored in a separate string key. So for the example above the English and Russian translations would be stored in `name_en` and `name_ru` respectively. So to search for a name in Russian you can use a query like `name_ru:Джон`. The `name` key will still exist, but will only contain the default language.
 
-## Popolo extensions
-
-In addition to the [Popolo schemas](http://popoloproject.com/specs/) we have added some PopIt specific customisations.
-
-#### Organization memberships
-
-Popolo currently only allows the members of an Organization to be Persons, but we've extended this to allow them to also be other Organizations. This allows you to e.g. model coalitions. The party Organizations which are part of the coalition have Memberships connecting them to the coalition Organization.
-
-An example Membership modelling The Conservative Party's Membership in the UK's Cameron Ministry coalition might look something like:
-
-{% highlight json %}
-{
-  "organization_id": "cameron_ministry",
-  "member": {
-    "@type": "Organization",
-    "id": "conservative_party"
-  }
-}
-{% endhighlight %}
-
-Then the Liberal Democrats' Membership would look something like:
-
-{% highlight json %}
-{
-  "organization_id": "cameron_ministry",
-  "member": {
-    "@type": "Organization",
-    "id": "liberal_democrats"
-  }
-}
-{% endhighlight %}
-
-Where `cameron_ministry` is the id of the coalition Organization and `conservative_party` and `liberal_democrats` are the ids of the parties in the coalition.
-
-When the API returns the `conservative_party` or `liberal_democrats` record, the `memberships` array property will include the Membership to the coalition. Likewise when the API returns the `cameron_ministry` record the `memberships` array property will include the Memberships to the two parties' Organizations.
-
 ## Examples
 
 To view a list of all the people (**persons**) in the database:
