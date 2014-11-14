@@ -123,6 +123,30 @@ An object is determined to be a translation object if all of the keys are valid 
 
 When indexing multiple languages each translation is stored in a separate string key. So for the example above the English and Russian translations would be stored in `name_en` and `name_ru` respectively. So to search for a name in Russian you can use a query like `name_ru:Джон`. The `name` key will still exist, but will only contain the default language.
 
+## Embedding memberships
+
+When retrieving a person, organization or post from the API you can include the record's memberships by using the `?embed` parameter.
+
+### Skip embed
+
+By default an objects memberships are included in API responses, you can suppress this by setting the embed parameter to a blank string:
+
+    https://za-peoples-assembly.popit.mysociety.org/api/v0.1/persons/org.mysociety.za/person/1?embed=
+
+### Embed related people/organizations
+
+If you want to include all the related organizations for memberships then you can set the `?embed=membership.organization`. Similarly if you want to include the person in each membership then you can set `?embed=membership.person`.
+
+    https://za-peoples-assembly.popit.mysociety.org/api/v0.1/persons/org.mysociety.za/person/1?embed=membership.organization
+
+### Multi-level embeds
+
+Embedding can be nested up to three levels deep, so you can embed memberships with the related people and their memberships with the related organizations and their memberships with their related people. Note though that queries like this can be very slow, especially on collection endpoints.
+
+    https://za-peoples-assembly.popit.mysociety.org/api/v0.1/persons/org.mysociety.za/person/1?embed=membership.person.membership.organization.membership.person
+
+This works on collections of records, individual records and search results.
+
 ## Examples
 
 To view a list of all the people (**persons**) in the database:
@@ -409,7 +433,7 @@ Multiple levels of embedding can be specified:
 
 https://za-peoples-assembly.popit.mysociety.org/api/v0.1/persons/org.mysociety.za/person/104?embed=membership.organization.membership.person
 
-Only three levels of embeding are permitted.
+Only three levels of embedding are permitted.
 
 If an organization has both person and organization memberships then it's only possible to join one at a time presently.
 
