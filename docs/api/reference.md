@@ -4,7 +4,16 @@ title: API Reference
 description: The PopIt API allows you to easily access all the data stored in PopIt from your code or other websites.
 ---
 
+## Introduction
+{:.no_toc}
+
 The PopIt API offers a JSON interface for accessing and manipulating People, Organizations, Memberships and Posts that are stored in an instance. Every PopIt instance has an API that makes almost all the data stored in it accessible programatically. You can access the API by visiting `/api/v0.1` in your instance, e.g. [https://za-peoples-assembly.popit.mysociety.org/api/v0.1/](https://za-peoples-assembly.popit.mysociety.org/api/v0.1/).
+
+### Contents
+{:.no_toc}
+
+* This will be replaced with the ToC, excluding the "Introduction" and "Contents" headers above
+{:toc}
 
 ## Versioning
 
@@ -114,7 +123,7 @@ An object is determined to be a translation object if all of the keys are valid 
 
 When indexing multiple languages each translation is stored in a separate string key. So for the example above the English and Russian translations would be stored in `name_en` and `name_ru` respectively. So to search for a name in Russian you can use a query like `name_ru:Джон`. The `name` key will still exist, but will only contain the default language.
 
-### Popolo extensions
+## Popolo extensions
 
 In addition to the [Popolo schemas](http://popoloproject.com/specs/) we have added some PopIt specific customisations.
 
