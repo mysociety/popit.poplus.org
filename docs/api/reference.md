@@ -7,7 +7,7 @@ description: The PopIt API allows you to easily access all the data stored in Po
 ## Introduction
 {:.no_toc}
 
-The PopIt API offers a JSON interface for accessing and manipulating People, Organizations, Memberships and Posts that are stored in an instance. Every PopIt instance has an API that makes almost all the data stored in it accessible programatically. You can access the API by visiting `/api/v0.1` in your instance, e.g. [https://za-peoples-assembly.popit.mysociety.org/api/v0.1/](https://za-peoples-assembly.popit.mysociety.org/api/v0.1/).
+The PopIt API offers a JSON interface for accessing and manipulating People, Organizations, Memberships and Posts that are stored in an instance. Every PopIt instance has an API that makes almost all the data stored in it accessible programatically. You can access the API by visiting `/api/v0.1` in your instance, e.g. <https://za-peoples-assembly.popit.mysociety.org/api/v0.1/>.
 
 ### Contents
 {:.no_toc}
@@ -27,10 +27,10 @@ All textual entries stored in PopIt follow the [Popolo](http://popoloproject.com
 
 The API allows you to query four types of collection, **persons**, **organizations**, **memberships** and **posts**. Anywhere in the documentation you see `:collection` you can replace it with one of those four types.
 
-- https://za-peoples-assembly.popit.mysociety.org/api/v0.1/persons
-- https://za-peoples-assembly.popit.mysociety.org/api/v0.1/organizations
-- https://za-peoples-assembly.popit.mysociety.org/api/v0.1/memberships
-- https://za-peoples-assembly.popit.mysociety.org/api/v0.1/posts
+- <https://za-peoples-assembly.popit.mysociety.org/api/v0.1/persons>
+- <https://za-peoples-assembly.popit.mysociety.org/api/v0.1/organizations>
+- <https://za-peoples-assembly.popit.mysociety.org/api/v0.1/memberships>
+- <https://za-peoples-assembly.popit.mysociety.org/api/v0.1/posts>
 
 **Note**: the South Africa People's Assembly instance doesn't currently use the **posts** collection.
 
@@ -131,19 +131,19 @@ When retrieving a person, organization or post from the API you can include the 
 
 By default an objects memberships are included in API responses, you can suppress this by setting the embed parameter to a blank string:
 
-    https://za-peoples-assembly.popit.mysociety.org/api/v0.1/persons/org.mysociety.za/person/1?embed=
+<https://za-peoples-assembly.popit.mysociety.org/api/v0.1/persons/org.mysociety.za/person/1?embed=>
 
 ### Embed related people/organizations
 
 If you want to include all the related organizations for memberships then you can set the `?embed=membership.organization`. Similarly if you want to include the person in each membership then you can set `?embed=membership.person`.
 
-    https://za-peoples-assembly.popit.mysociety.org/api/v0.1/persons/org.mysociety.za/person/1?embed=membership.organization
+<https://za-peoples-assembly.popit.mysociety.org/api/v0.1/persons/org.mysociety.za/person/1?embed=membership.organization>
 
 ### Multi-level embeds
 
 Embedding can be nested up to three levels deep, so you can embed memberships with the related people and their memberships with the related organizations and their memberships with their related people. Note though that queries like this can be very slow, especially on collection endpoints.
 
-    https://za-peoples-assembly.popit.mysociety.org/api/v0.1/persons/org.mysociety.za/person/1?embed=membership.person.membership.organization.membership.person
+<https://za-peoples-assembly.popit.mysociety.org/api/v0.1/persons/org.mysociety.za/person/1?embed=membership.person.membership.organization.membership.person>
 
 This works on collections of records, individual records and search results.
 
@@ -151,7 +151,7 @@ This works on collections of records, individual records and search results.
 
 To view a list of all the people (**persons**) in the database:
 
-https://za-peoples-assembly.popit.mysociety.org/api/v0.1/persons
+<https://za-peoples-assembly.popit.mysociety.org/api/v0.1/persons>
 
 {% highlight json %}
 {
@@ -273,7 +273,7 @@ https://za-peoples-assembly.popit.mysociety.org/api/v0.1/persons
 
 Or view the record for an individual person in the database:
 
-https://za-peoples-assembly.popit.mysociety.org/api/v0.1/persons/org.mysociety.za/person/104
+<https://za-peoples-assembly.popit.mysociety.org/api/v0.1/persons/org.mysociety.za/person/104>
 
 {% highlight json %}
 {
@@ -355,7 +355,7 @@ https://za-peoples-assembly.popit.mysociety.org/api/v0.1/persons/org.mysociety.z
 
 You can expand the contents of the memberships and inline persons or organizations using the embed query parameter.
 
-https://za-peoples-assembly.popit.mysociety.org/api/v0.1/persons/org.mysociety.za/person/104?embed=membership.organization
+<https://za-peoples-assembly.popit.mysociety.org/api/v0.1/persons/org.mysociety.za/person/104?embed=membership.organization>
 
 {% highlight json %}
 {
@@ -431,7 +431,7 @@ https://za-peoples-assembly.popit.mysociety.org/api/v0.1/persons/org.mysociety.z
 
 Multiple levels of embedding can be specified:
 
-https://za-peoples-assembly.popit.mysociety.org/api/v0.1/persons/org.mysociety.za/person/104?embed=membership.organization.membership.person
+<https://za-peoples-assembly.popit.mysociety.org/api/v0.1/persons/org.mysociety.za/person/104?embed=membership.organization.membership.person>
 
 Only three levels of embedding are permitted.
 
