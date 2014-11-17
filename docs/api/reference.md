@@ -410,7 +410,7 @@ https://za-peoples-assembly.popit.mysociety.org/api/v0.1/persons/org.mysociety.z
         "role": "Speaker",
         "person_id": "org.mysociety.za/person/104",
         "organization_id": {
-          "id: "org.mysociety.za/house/national-assembly",
+          "id": "org.mysociety.za/house/national-assembly",
           "slug": "national-assembly",
           "classification": "house",
           "name": "National Assembly",
