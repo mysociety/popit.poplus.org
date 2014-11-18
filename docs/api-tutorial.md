@@ -260,7 +260,7 @@ So now if we request details of the person we added we can see the membership we
 
 ### Updating a Person ###
 
-Now that we've stored details about someone in PopIt we're probably going to want to update them at some point. To do this we make a PUT request to the URL of the person we're updating with the details we want to change or add:
+Now that we've stored details about someone in PopIt we're probably going to want to update them at some point. To do this we make a PUT request to the URL of the person we're updating with the new version of the person:
 
 {% highlight bash %}
   curl --request PUT \
@@ -286,7 +286,7 @@ Now that we've stored details about someone in PopIt we're probably going to wan
   }
 {% endhighlight %}
 
-Note that we have to include the name in each request, but we only need to include the information we want to change. If you don't include a field in the update then it will remain unchanged:
+Note that we have to include the entire document when updating. If we don't then the fields we omit will be removed:
 
 {% highlight bash %}
   curl --request PUT \
@@ -299,7 +299,6 @@ Note that we have to include the name in each request, but we only need to inclu
   {
     "result": {
       "id": "joe-bloggs",
-      "birth_date": "1970-01-01",
       "summary": "An example person for the tutorial",
       "name": "Joe Bloggs",
       "memberships": [],
