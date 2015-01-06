@@ -13,7 +13,7 @@ title: Popolo import and export
 
 ### Export all data
 
-To export all data from your instance, just visit `/api/v0.1/export.json.gz`. This will give you a copy of the data in your instance in [Popolo][] format. See the [JSON Format](#json-format) section for more details on how this file is formatted.
+To export all data from your instance, just visit `/api/v0.1/export.json`. This will give you a copy of the data in your instance in [Popolo][] format. See the [JSON Format](#json-format) section for more details on how this file is formatted.
 
     GET /api/v0.1/export.json
 
