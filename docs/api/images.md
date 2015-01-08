@@ -220,3 +220,10 @@ https://test.popit.mysociety.org/api/v0.1/persons/50d1f2e1c03858f9f6000006/image
 
 {% endhighlight %}
 
+### Image Proxy
+
+If there is an available image proxy then the URL of the proxied image will be included in the `proxy_url` key. This can
+be used to generate thumbnail versions of the image. This URL is the base URL for the proxy image and it's up to the client
+to add any parameters for creating a thumbnail version etc.
+
+The proxy url for the main image is included in the `proxy_image` key at the top level of the document.
