@@ -17,7 +17,11 @@ The PopIt API offers a JSON interface for accessing and manipulating People, Org
 
 ## Versioning
 
-There is a version string in the API url, currently `v0.1`. This will be updated if the API undergoes significant changes that breaks backwards compatibility.
+The current version of the API is 0.2. This is accessed via `/api/v0.2` and the previous version is at `v0.1`. Unless otherwise indicated this documentation is valid for all versions of the API. Where a change has occured in subsequent versions the version this first appeared in will be indicated.
+
+There is also a list of version changes at [API changes](/docs/api/changelog/).
+
+If you wish to always track the current version of the API then this is available at `/api/current`. Backwards incompatible changes may be made to this so caution should be exercised when doing this.
 
 ## Data schema
 

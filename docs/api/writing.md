@@ -10,7 +10,7 @@ For details on editing images see [Images and the API]({{ site.baseurl }}/docs/a
 
 ## Authorization
 
-No authentication is required for read access. For write operations on the API you need to be authenticated. This can  either be done using [Basic Authentication](http://en.wikipedia.org/wiki/Basic_access_authentication) or by cookie auth. Basic is probably best for scripts and programatic access, cookie based for Ajax calls etc.
+No authentication is required for read access. See the [Authentication section](/docs/api/#authentication) of the API overview for details on authentication.
 
 ## Method summary
 
@@ -73,6 +73,72 @@ The `Content-Type` is set to `application/json`. This allows nested values to be
 Updating a document is done by sending the whole document in the `PUT` request. Any fields that are omitted in the request will be removed, and replaced with the default.
 
 When you put the order of items in arrays (like images) will be changed as well if needed.
+
+#### Inline memberships
+
+From API v0.2 onwards memberships included inline in a document in POST or PUT requests will be created or updated.
+
+{% highlight bash %}
+
+$ curl                                                          \
+    --request POST                                              \
+    --header "Apikey: 2a0abbefe6aefb67ba5302a12570c2af2a7f4433" \
+    --header "Accept: application/json"                         \
+    --header "Content-Type: application/json"                   \
+    --data '{ "name": "Joe Bloggs"                              \
+    "memberships": [ {                                          \
+        "organization_id": "example-inc"                        \
+      } ]                                                       \
+    }'                                                          \
+    https://test.popit.mysociety.org/api/v0.1/persons
+
+{
+  "result": {
+    "id": "50d1f2e1c03858f9f6000006",
+    "name": "Joe Bloggs"
+    "memberships": [ {
+      "person_id": "50d1f2e1c03858f9f6000006",
+      "organization_id": "example-inc"
+    } ]
+  }
+}
+{% endhighlight %}
+
+You only need to include the ID of the document on the other side of the membership as the API will fill in the ID of the current document by default.
+
+An error will be returned if you try to create a membership that does not include the current document. However, if the other document referred to in the membership does not exist the membership will still be created.
+
+So this will return an error:
+
+{% highlight bash %}
+
+$ curl                                                          \
+    --request POST                                              \
+    --header "Apikey: 2a0abbefe6aefb67ba5302a12570c2af2a7f4433" \
+    --header "Accept: application/json"                         \
+    --header "Content-Type: application/json"                   \
+    --data '{ "name": "Joe Bloggs"                              \
+    "memberships": [ {                                          \
+        "person_id": "joe-bloggs"                               \
+        "organization_id": "example-inc"                        \
+      } ]                                                       \
+    }'                                                          \
+    https://test.popit.mysociety.org/api/v0.1/persons
+
+{
+  "errors": [
+    "person id (joe-bloggs) in membership and person id (50d1f2e1c03858f9f6000006) are mismatched"
+  ]
+}
+{% endhighlight %}
+
+In this case the document will not be created. For PUT requests no update to the document will happen.
+
+If you set memberships to [] in a PUT request all existing memberships for that document will be deleted. Similarly, any memberships omitted will be deleted.
+
+If the memberships key is omitted entirely then no changes to the memberships will occur.
+
+In previous versions of the API the memberships key was ignored.
 
 ### Deleting a document
 
