@@ -64,6 +64,13 @@ This is an example of the [Popolo][] JSON that you might get from an export.
         }
       ]
     }
+  ],
+  "memberships": [
+    {
+      "id": "54aaae8ef0f6f87a32365a4e",
+      "person_id": "john-q-public",
+      "organization_id": acme-corp"
+    }
   ]
 }
 {% endhighlight %}
