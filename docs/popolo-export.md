@@ -29,7 +29,7 @@ For example if you've set za-Hant as an alternative language, you could use this
 
 ## JSON format
 
-When exporting or import [Popolo][] JSON the file that you produce will need to follow a certain format. The JSON is formatted as an object where each key is a valid collection name, and the value for each collection is an array of [Popolo][]-compliant objects.
+When exporting [Popolo][] JSON the file that is output follows a certain format. The JSON is formatted as an object where each key is a valid collection name, and the value for each collection is an array of [Popolo][]-compliant objects.
 
 ### Valid collections
 
