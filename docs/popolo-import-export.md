@@ -1,19 +1,11 @@
 ---
 layout: docs
-title: Popolo import and export
+title: Popolo export
 ---
-
-## Contents
-{:.no_toc}
-
-- This will be replaced by a Table of contents
-{:toc}
-
-## Export
 
 ### Export all data
 
-To export all data from your instance, just visit `/api/v0.1/export.json`. This will give you a copy of the data in your instance in [Popolo][] format. See the [JSON Format](#json-format) section for more details on how this file is formatted.
+To export all data from your instance, just visit `/api/v0.1/export.json`. This will give you a copy of the data in your instance in [Popolo][] format. See the [JSON Format](#json-format) section for more details on how this file is formatted. If your data is in multiple languages then this will only export the default language. To export other languages see the [next section](#export-data-in-a-particular-language).
 
     GET /api/v0.1/export.json
 
@@ -34,10 +26,6 @@ As above, if you'd like a compressed version of this data, just add a `.gz` exte
 For example if you've set za-Hant as an alternative language, you could use this url to download just the za-Hant version of your data.
 
     GET /api/v0.1/export-za-Hant.json
-
-## Import
-
-Coming soon…
 
 ## JSON format
 
