@@ -35,7 +35,7 @@ When exporting [Popolo][] JSON the file that is output follows a certain format.
 
 - `organizations`
 - `posts`
-- `people` (or `persons`)
+- `persons`
 - `memberships`
 
 ### Example
@@ -50,7 +50,7 @@ This is an example of the [Popolo][] JSON that you might get from an export.
       "name": "ACME Corporation"
     }
   ],
-  "people": [
+  "persons": [
     {
       "id": "john-q-public",
       "name": "Mr. John Q. Public, Esq.",
