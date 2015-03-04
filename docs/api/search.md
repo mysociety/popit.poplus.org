@@ -47,7 +47,7 @@ This will only match the exact string specified.
 
 You can match date ranges using the API, e.g. to find all memberships which started in 2013:
 
-    /api/v0.1/search/memberships?q=start_date:[2013/01/01+TO+2013/12/31]
+    /api/v0.1/search/memberships?q=start_date:[2013-01-01+TO+2013-12-31]
 
 #### Searching Dates
 
