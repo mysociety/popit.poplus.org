@@ -29,7 +29,7 @@ PopIt closely follows the suggested REST method behaviours, but with a few devia
     <td>List documents</td>
     <td><i>Not implemented</i></td>
     <td>Create document</td>
-    <td><i>Not implemented</i></td>
+    <td>Delete documents</td>
   </tr>
   <tr>
     <th>Document endpoint:</th>
@@ -90,7 +90,7 @@ $ curl                                                          \
 
 ### Not Implemented Methods
 
-These are `PUT` and `DELETE` on collections. Implementing these would mean that you could replace an entire collection, or delete it, in one operation. It is not likely that this is something that you'll want to do often, and the penalty for doing it by mistake is high.
+`PUT` on collections is not implemented. Implementing this would mean that you could replace an entire collection in one operation. It is not likely that this is something that you'll want to do often, and the penalty for doing it by mistake is high.
 
 A `POST` to a document endpoint means that you should treat the document as a collection and add an entry to it. For PopIt this makes no sense and so it is not implemented.
 
