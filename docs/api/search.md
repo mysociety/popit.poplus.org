@@ -59,7 +59,7 @@ You specify the date fields as separate query parameters and it handles document
 
     /api/v0.1/search_dates/memberships?q=organization_id=2000&start_date=<2010-01-01&end_date=>2012-12-31
 
-The results for this will also include memberships with no `start_date` or no `end_date`. It's possible to construct a query that does this using the normal search interface, this is just a slighltly more convenient way to do so.
+The results for this will also include memberships with no `start_date` or no `end_date`. It's possible to construct a query that does this using the normal search interface, this is just a slightly more convenient way to do so.
 
 
 ### Further reading
