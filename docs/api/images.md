@@ -174,7 +174,7 @@ https://test.popit.mysociety.org/api/v0.1/persons/50d1f2e1c03858f9f6000006/image
 
 {% endhighlight %}
 
-Not that at the moment only the first image listed in `images` will be displayed in the Popit UI.
+Note that at the moment only the first image listed in `images` will be displayed in the Popit UI.
 
 ### Deleting an Image
 
