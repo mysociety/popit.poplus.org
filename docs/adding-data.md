@@ -3,13 +3,7 @@ layout: docs
 title: Adding data
 ---
 
-As well as entering data through the UI, PopIt will let you enter and access data easily from your code. It will also let you upload existing data to quickly populate a new site.
-
-## Migration Tool
-
-If you have been collecting information on people in a spreadsheet, this web based tool will let you quickly upload it all into PopIt rather than entering it manually.
-
-To use it, simply go to <code>/migration</code> in your PopIt instance and follow the instructions.
+As well as entering data through the UI, PopIt will let you enter and access data easily from your code.
 
 ## API
 
