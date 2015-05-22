@@ -29,6 +29,12 @@ If you wanted to search for people named `John` then your query might look like:
 
 In this url the `q` parameter is requesting records where the `name` field contains `John`.
 
+If you want to query sub-class, such as id property of area of a post then your query might look like:
+
+    /api/v0.1/search/posts?q=area.id:p104
+    
+In this url `q` parameter is requesting records of posts, where `area` field `id` contains `p104`
+
 #### Wildcards
 
 Wildcard searches can be run on individual terms, using `?` to replace a single character, and `*` to replace zero or more characters:
